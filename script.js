@@ -199,7 +199,7 @@
     // (view)
     var counter = document.getElementById("counter");
     var updateWalking = function () {
-        counter.textContent = vh;
+        counter.textContent = count;
     };
     var reset = document.getElementById("reset");
     reset.addEventListener("click", function () {
@@ -213,12 +213,9 @@
     // see: http://www.w3.org/TR/orientation-event/
     window.addEventListener("devicemotion", function (ev) {
         try {
-            var vh;
-            // counter.textContent=ev;
-            vh = splitVH(ev);
+            var vh = splitVH(ev);
             walking(vh);
             recordXYZ(vh);
-            // document.write("vh:"+vh);
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
         }
