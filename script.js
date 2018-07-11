@@ -213,7 +213,7 @@
     
     var value = document.getElementById("vibrate_value");
     var updateValue = function(){
-        value.getContext = count;
+        value.textContext = count;
     };
 
     // Event Handlers
