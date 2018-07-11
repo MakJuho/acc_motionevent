@@ -213,13 +213,18 @@
     // see: http://www.w3.org/TR/orientation-event/
     window.addEventListener("devicemotion", function (ev) {
         try {
-            var vh = splitVH(ev);
+            var vh 
+            this.setInterval(function(){
+                vh = splitVH(ev);
+            
             walking(vh);
             recordXYZ(vh);
+            }, 1000);
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
         }
     }, false);
+    
     requestAnimationFrame(function loop() {
         updateWalking();
         if (lastvh) {
