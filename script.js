@@ -208,7 +208,11 @@
         updown = 0;
     }, false);
     
-    
+    var value = document.getElementById("vibrate_value");
+    var updateValue = function(){
+        value.textContent = count;
+    };
+
     // Event Handlers
     // see: http://www.w3.org/TR/orientation-event/
     window.addEventListener("devicemotion", function (ev) {
@@ -216,7 +220,7 @@
             var vh = splitVH(ev);
             walking(vh);
             recordXYZ(vh);
-            document.write(vh);
+            // document.write(vh);
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
         }
