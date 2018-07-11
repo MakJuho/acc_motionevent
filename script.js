@@ -212,7 +212,7 @@
     
     var value = document.getElementById("vibrate_value");
     var updateValue = function(){
-        value.textContent = vh.vl;
+        value.textContent = vh;
     };
 
     // Event Handlers
