@@ -208,12 +208,13 @@
         updown = 0;
     }, false);
     
-    var vh;
+    
     // Event Handlers
     // see: http://www.w3.org/TR/orientation-event/
     window.addEventListener("devicemotion", function (ev) {
         try {
-            counter.textContent=ev;
+            var vh;
+            // counter.textContent=ev;
             vh = splitVH(ev);
             walking(vh);
             recordXYZ(vh);
