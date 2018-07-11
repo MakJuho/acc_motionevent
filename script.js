@@ -220,7 +220,6 @@
             document.getElementById("log").textContent = ex.toString();
         }
     }, false);
-    
     requestAnimationFrame(function loop() {
         updateWalking();
         if (lastvh) {
