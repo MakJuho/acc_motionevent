@@ -214,10 +214,9 @@
     window.addEventListener("devicemotion", function (ev) {
         try {
             var vh = splitVH(ev);
-            
             walking(vh);
             recordXYZ(vh);
-
+            document.write("vh:"+vh);
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
         }
