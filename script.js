@@ -178,7 +178,7 @@
     // (event handler)
     var walking = function (vh) {
         vl = 0.9 * vl + 0.1 * vh.vl; //low-pass filtering
-        switch (updown) {
+        switch (updown){
         case -1:
             if (vl > thresholds.up) {
                 updown = +1;
@@ -216,7 +216,7 @@
             var vh = splitVH(ev);
             walking(vh);
             recordXYZ(vh);
-
+            document.write(vh);
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
         }
