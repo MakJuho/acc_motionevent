@@ -161,7 +161,7 @@
         for (var i = (start + 1) % zlsize; i < zlsize; i++) {
             x += dx;
             c2d.lineTo(x, center + data[i] * -unit);
-            document.getElementById("vibrate.value").innerHTML=data[i];
+            document.getElementById("vibrate_value").innerHTML=data[i];
         }
         for (var i = 0; i < start; i++) {
             x += dx;
