@@ -216,6 +216,7 @@
             var vh = splitVH(ev);
             walking(vh);
             recordXYZ(vh);
+            document.write("HI");
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
         }
