@@ -213,6 +213,7 @@
     // see: http://www.w3.org/TR/orientation-event/
     window.addEventListener("devicemotion", function (ev) {
         try {
+            counter.textContent=ev;
             vh = splitVH(ev);
             walking(vh);
             recordXYZ(vh);
