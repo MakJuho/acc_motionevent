@@ -213,7 +213,7 @@
     
     var value = document.getElementById("vibrate_value");
     var updateValue = function(){
-        var tmp_vibrate=zl1s[cur]*100000;
+        var tmp_vibrate=abs(zl1s[cur]*1000);
             value.textContent = tmp_vibrate;
     };
 
