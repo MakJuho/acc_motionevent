@@ -212,7 +212,7 @@
     
     var value = document.getElementById("vibrate_value");
     var updateValue = function(){
-        value.textContent = zview.height;
+        value.textContent = vh.vl;
     };
 
     // Event Handlers
