@@ -161,6 +161,7 @@
         for (var i = (start + 1) % zlsize; i < zlsize; i++) {
             x += dx;
             c2d.lineTo(x, center + data[i] * -unit);
+            document.getElementById("vibrate.value").innerHTML=data[i];
         }
         for (var i = 0; i < start; i++) {
             x += dx;
@@ -210,10 +211,9 @@
         updown = 0;
     }, false);
     
-    var value = document.getElementById("vibrate_value");
-    var updateValue = function(){
-        value.textContent = vh;
-    };
+    // var value = document.getElementById("vibrate_value");
+    // var updateValue = function(){
+    // };
 
     // Event Handlers
     // see: http://www.w3.org/TR/orientation-event/
@@ -229,7 +229,7 @@
     }, false);
     requestAnimationFrame(function loop() {
         updateWalking();
-        updateValue();
+        // updateValue();
         if (lastvh) {
             showAccel(v1, lastvh.a);
             showAccel(v2, lastvh.ag);
