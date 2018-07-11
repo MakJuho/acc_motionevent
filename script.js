@@ -227,6 +227,7 @@
     }, false);
     requestAnimationFrame(function loop() {
         updateWalking();
+        updateValue();
         if (lastvh) {
             showAccel(v1, lastvh.a);
             showAccel(v2, lastvh.ag);
