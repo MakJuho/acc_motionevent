@@ -213,10 +213,8 @@
     
     var value = document.getElementById("vibrate_value");
     var updateValue = function(){
-        setTimeout(() => {
-            value.textContent = zl1s[cur];
-        }, 1000);
-        
+            value.textContent = zl1s[cur]*1000;
+
     };
 
     // Event Handlers
