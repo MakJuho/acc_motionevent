@@ -175,32 +175,9 @@
     var count = 0;
     var updown = 0;
     var thresholds = {up: 0.25, down: -0.25};
-    // (event handler)
-    var walking = function (vh) {
-        vl = 0.9 * vl + 0.1 * vh.vl; //low-pass filtering
-        switch (updown) {
-        case -1:
-            if (vl > thresholds.up) {
-                updown = +1;
-                count += 1;
-            }
-            break;
-        case +1:
-            if (vl < thresholds.down) {
-                updown = -1;
-            }
-            break;
-        default:
-            if (vl < 0) updown = -1;
-            if (vl >= 0) updown = +1;
-            break;
-        }
-    };
+
     // (view)
     var counter = document.getElementById("counter");
-    var updateWalking = function () {
-        counter.textContent = count;
-    };
     var reset = document.getElementById("reset");
     reset.addEventListener("click", function () {
         vl = 0.0;
@@ -214,7 +191,6 @@
     window.addEventListener("devicemotion", function (ev) {
         try {
             var vh = splitVH(ev);
-            walking(vh);
             recordXYZ(vh);
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
@@ -222,7 +198,6 @@
     }, false);
     
     requestAnimationFrame(function loop() {
-        updateWalking();
         if (lastvh) {
             showAccel(v1, lastvh.a);
             showAccel(v2, lastvh.ag);
