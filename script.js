@@ -149,6 +149,8 @@
         drawChart(c2d, zl1s, "red");
         drawChart(c2d, zl2s, "blue");
     };
+
+
     var drawChart = function (c2d, data, stroke) {
         var start = (cur + 1) % zlsize;
         var x = 0;
@@ -210,7 +212,7 @@
     
     var value = document.getElementById("vibrate_value");
     var updateValue = function(){
-        value.textContent = vl;
+        value.textContent = zview.height;
     };
 
     // Event Handlers
