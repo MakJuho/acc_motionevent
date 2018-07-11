@@ -6,6 +6,8 @@
     <script src="script.js"></script>
     <style>
       ul > li {display : none;}
+      #reset {display : none;}
+      #counter {display : none;}
     </style>
   </head>
 
@@ -13,7 +15,7 @@
   <body>
     <h1>진동 측정</h1>
     
-    <div><h2>Acceleration (w/o Gravity)</h2>
+    <!-- <div><h2>Acceleration (w/o Gravity)</h2> -->
       <ul>
         <li>
           x: <input id="x1" type="range" max="20.0" min="-20.0"
@@ -39,7 +41,7 @@
       </ul>
     </div>
     
-    <div><h2>Acceleration (w/ Gravity)</h2>
+    <!-- <div><h2>Acceleration (w/ Gravity)</h2> -->
       <ul>
         <li>x: <input id="x2" type="range" max="20.0" min="-20.0"
                       readonly="readonly"/>
@@ -63,7 +65,7 @@
         </li>
       </ul>
     </div>
-    <div><h2>Acceleration (vertical/horizontal)</h2>
+    <!-- <div><h2>Acceleration (vertical/horizontal)</h2> -->
       <ul>
         <li>v: <input id="v" type="range" max="20.0" min="-20.0"
                       readonly="readonly"/>
@@ -78,8 +80,7 @@
       </ul>
     </div>
     <div>
-      Walk counter: <span id="counter">0</span>
-      steps
+      <span id="counter"></span>
       <button id="reset" style="padding: 5px 30px; border-radius: 10px;"
               >reset</button>
     </div>
@@ -97,8 +98,8 @@
         <li><span style="color: blue">low-pass filtered value</span></li>
       </ul>
     </div>
-    <div id="log"></div>
-    <div><a href="https://gist.github.com/bellbind/c885f85a0dd0e4681ee5">
-        gist source</a></div>
+    <!-- <div id="log"></div> -->
+    <!-- <div><a href="https://gist.github.com/bellbind/c885f85a0dd0e4681ee5">
+        gist source</a></div> -->
   </body>
 </html>
