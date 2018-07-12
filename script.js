@@ -234,7 +234,7 @@
 
     requestAnimationFrame(function loop() {
         updateWalking();
-        settimeout(updateValue(),3000);
+        setTimeout(updateValue(), 10000);
         // updateValue();
         
         
