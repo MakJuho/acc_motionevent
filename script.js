@@ -214,7 +214,8 @@
     var value = document.getElementById("vibrate_value");
     var updateValue = function(){
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
-            value.textContent = tmp_vibrate;
+        tmp_vibrate=Math.floor(tmp_vibrate);
+        value.textContent = tmp_vibrate;
     };
 
     // Event Handlers
@@ -223,15 +224,19 @@
         try {
             var vh = splitVH(ev);
             walking(vh);
-            recordXYZ(vh);
+            setTimeout(function(){
+                recordXYZ(vh);
+            },1000);
+            
 
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
         }
-    }, false);
+    }, false); 
+
     requestAnimationFrame(function loop() {
         updateWalking();
-        setInterval("updateValue()",3000);
+        updateValue()
         
         
         if (lastvh) {
