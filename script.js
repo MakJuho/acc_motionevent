@@ -213,8 +213,10 @@
     
     var value = document.getElementById("vibrate_value");
     var updateValue = function(){
+        setTimeout(function () {
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
             value.textContent = tmp_vibrate;
+        }, 1000);
     };
 
     // Event Handlers
@@ -231,9 +233,9 @@
     }, false);
     requestAnimationFrame(function loop() {
         updateWalking();
-        setTimeout(function(){
+        
             updateValue();
-        },1000);
+        
         
         if (lastvh) {
             showAccel(v1, lastvh.a);
