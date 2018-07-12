@@ -20,6 +20,27 @@
     var abs = function (a) {
         return Math.sqrt(dot(a, a));
     };
+    // 내가 짠 부분
+    var calculate_val = function(ev){
+        var acc = ev.acceleration,
+            accg = ev.accelerationIncludingGravity;
+
+        var lastX, lastY, lastZ;
+       
+        var currentTime =+ new Date();
+        var gabOfTime = (currentTime-lastTime);
+
+        if(gabOfTime > 100){
+
+            lastTime = currentTime;
+            speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
+
+            lastX=acc.x;
+            lastY=acc.y;
+            lastZ=acc.z;
+        }
+        return speed_float;
+    }    
     
     // split vertical/horizontal elements of acceleration
     var splitVH = function (ev) {
@@ -135,6 +156,7 @@
         c2d.restore();
     };
     // z accel view
+
     var zview = document.getElementById("zview");
     var drawZ = function (vh) {
         var c2d = zview.getContext("2d");
@@ -146,7 +168,7 @@
         c2d.lineTo(w, h/2);
         c2d.strokeStyle = "black";
         c2d.stroke();
-        drawChart(c2d, zl1s, "red");
+        drawChart(c2d, calculate_val, "red");
         drawChart(c2d, zl2s, "blue");
     };
 
@@ -211,11 +233,14 @@
         updown = 0;
     }, false);
     
-    var value = document.getElementById("vibrate_value");
+    var value = document.getElementById("val");
     var updateValue = function(){
+        
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
         value.textContent = tmp_vibrate;
+        // 값은 tmp_vibrate로 넘겨준다.
+        // id 하나를 지정하고 거기에 값을 넣어준다.
     };
 
     // Event Handlers
@@ -234,9 +259,9 @@
 
     requestAnimationFrame(function loop() {
         updateWalking();
-        setTimeout(updateValue(), 10000);
-        // updateValue();
+        // setTimeout(updateValue(), 10000);
         
+        updateValue();
         
         if (lastvh) {
             showAccel(v1, lastvh.a);
