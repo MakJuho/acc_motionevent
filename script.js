@@ -224,14 +224,17 @@
             var vh = splitVH(ev);
             walking(vh);
             recordXYZ(vh);
-            // document.write(vh);
+
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
         }
     }, false);
     requestAnimationFrame(function loop() {
         updateWalking();
-        updateValue();
+        setTimeout(function(){
+            updateValue();
+        },1000);
+        
         if (lastvh) {
             showAccel(v1, lastvh.a);
             showAccel(v2, lastvh.ag);
