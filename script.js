@@ -224,9 +224,7 @@
         try {
             var vh = splitVH(ev);
             walking(vh);
-            setTimeout(function(){
-                recordXYZ(vh);
-            },1000);
+            recordXYZ(vh);
             
 
         } catch (ex) {
@@ -236,7 +234,8 @@
 
     requestAnimationFrame(function loop() {
         updateWalking();
-        updateValue()
+        settimeout(updateValue(),3000);
+        // updateValue();
         
         
         if (lastvh) {
