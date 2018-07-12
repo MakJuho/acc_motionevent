@@ -168,7 +168,7 @@
         c2d.lineTo(w, h/2);
         c2d.strokeStyle = "black";
         c2d.stroke();
-        drawChart(c2d, calculate_val, "red");
+        drawChart(c2d, zl1s, "red");
         drawChart(c2d, zl2s, "blue");
     };
 
@@ -238,7 +238,7 @@
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
-        value.textContent = tmp_vibrate;
+        value.textContent = speed_float;
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
     };
