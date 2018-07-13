@@ -20,6 +20,30 @@
     var abs = function (a) {
         return Math.sqrt(dot(a, a));
     };
+    // var speed_float;
+    // var gabOfTime;
+    // 내가 짠 부분
+    // var calculate_val = function(ev){
+    //     var acc = ev.acceleration,
+    //         accg = ev.accelerationIncludingGravity;
+
+    //     var lastX, lastY, lastZ;
+       
+    //     var currentTime =+ new Date();
+
+    //     gabOfTime = (currentTime-lastTime);
+
+    //     if(gabOfTime > 100){
+
+    //         lastTime = currentTime;
+    //         speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
+
+    //         lastX=acc.x;
+    //         lastY=acc.y;
+    //         lastZ=acc.z;
+    //     }
+    //     acc.x;
+    // }    
     
     // split vertical/horizontal elements of acceleration
     var splitVH = function (ev) {
@@ -54,7 +78,7 @@
     var zlsize = 300;
     var zl1s = new Array(zlsize);
     var zl2s = new Array(zlsize);
-    for (var i = 0; i < zlsize; i++) zl1s[i] = zl2s[i] = 0.0;
+    for (var i = 0; i < zlsize; i++) zl1s[i] = zl2s[i] = 0.0; 
     var cur = 0;
     var recordXYZ = function (vh) {
         lastvh = vh;
@@ -135,6 +159,7 @@
         c2d.restore();
     };
     // z accel view
+
     var zview = document.getElementById("zview");
     var drawZ = function (vh) {
         var c2d = zview.getContext("2d");
@@ -161,7 +186,6 @@
         for (var i = (start + 1) % zlsize; i < zlsize; i++) {
             x += dx;
             c2d.lineTo(x, center + data[i] * -unit);
-            // document.getElementById("vibrate_value").innerHTML=data[i];
         }
         for (var i = 0; i < start; i++) {
             x += dx;
@@ -211,10 +235,16 @@
         updown = 0;
     }, false);
     
-    var value = document.getElementById("vibrate_value");
+    var value = document.getElementById("val");
     var updateValue = function(){
+        
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
-            value.textContent = tmp_vibrate;
+        tmp_vibrate=Math.floor(tmp_vibrate);
+        // 출력부분
+        value.textContent = tmp_vibrate;
+        
+        // 값은 tmp_vibrate로 넘겨준다.
+        // id 하나를 지정하고 거기에 값을 넣어준다.
     };
 
     // Event Handlers
@@ -222,16 +252,23 @@
     window.addEventListener("devicemotion", function (ev) {
         try {
             var vh = splitVH(ev);
+
             walking(vh);
             recordXYZ(vh);
-            // document.write(vh);
+
+
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
         }
-    }, false);
+    }, false); 
+
     requestAnimationFrame(function loop() {
         updateWalking();
+
+        
         updateValue();
+
+
         if (lastvh) {
             showAccel(v1, lastvh.a);
             showAccel(v2, lastvh.ag);
