@@ -7,7 +7,7 @@
       y: 0
     }]; //dataPoints. 
     
-    document.write("<script type='text/javascript' src='script.js'><" + "/script>");
+    // document.write("<script type='text/javascript' src='script.js'><" + "/script>");
 
     var chart = new CanvasJS.Chart("chartContainer", {
       title: {
