@@ -34,7 +34,7 @@
     var updateChart = function () {
 
 
-      yVal = calculate_val();
+      yVal = time_knowing();
 
       dps.push({
         x: xVal,
