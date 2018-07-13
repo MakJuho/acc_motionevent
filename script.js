@@ -27,21 +27,22 @@
         var acc = ev.acceleration,
             accg = ev.accelerationIncludingGravity;
 
-        var lastX, lastY, lastZ;
+        // var lastX, lastY, lastZ;
        
-        var currentTime =+ new Date();
+        // var currentTime =+ new Date();
 
-        gabOfTime = (currentTime-lastTime);
+        // gabOfTime = (currentTime-lastTime);
 
-        if(gabOfTime > 100){
+        // if(gabOfTime > 100){
 
-            lastTime = currentTime;
-            speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
+        //     lastTime = currentTime;
+        //     speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
 
-            lastX=acc.x;
-            lastY=acc.y;
-            lastZ=acc.z;
-        }
+        //     lastX=acc.x;
+        //     lastY=acc.y;
+        //     lastZ=acc.z;
+        // }
+        // acc.x;
     }    
     
     // split vertical/horizontal elements of acceleration
@@ -77,7 +78,7 @@
     var zlsize = 300;
     var zl1s = new Array(zlsize);
     var zl2s = new Array(zlsize);
-    for (var i = 0; i < zlsize; i++) zl1s[i] = zl2s[i] = 0.0;
+    for (var i = 0; i < zlsize; i++) zl1s[i] = zl2s[i] = 0.0; 
     var cur = 0;
     var recordXYZ = function (vh) {
         lastvh = vh;
@@ -241,7 +242,7 @@
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
         // 출력부분
-        value.textContent = tmp_vibrate;
+        value.textContent = ev.acceleration.x;
         
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
@@ -252,7 +253,7 @@
     window.addEventListener("devicemotion", function (ev) {
         try {
             var vh = splitVH(ev);
-            calculate_val(ev);
+            // calculate_val(ev);
             walking(vh);
             recordXYZ(vh);
 
