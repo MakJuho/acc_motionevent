@@ -20,7 +20,8 @@
     var abs = function (a) {
         return Math.sqrt(dot(a, a));
     };
-    var speed_float
+    var speed_float;
+    var gabOfTime;
     // 내가 짠 부분
     var calculate_val = function(ev){
         var acc = ev.acceleration,
@@ -241,7 +242,7 @@
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
         // 출력부분
-        value.textContent = calculate_val();
+        value.textContent = gabOfTime;
         
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
@@ -252,6 +253,7 @@
     window.addEventListener("devicemotion", function (ev) {
         try {
             var vh = splitVH(ev);
+            calculate_val(ev);
             walking(vh);
             recordXYZ(vh);
 
