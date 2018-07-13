@@ -41,8 +41,9 @@
         // }
         speed_float = v2.xn.value+v2.yn.value+v2.zn.value;
 
-        return lastvh.ag.z;
+        return splitVH().ag.z;
     }    
+    var send_acc_z;
     
     // split vertical/horizontal elements of acceleration
     var splitVH = function (ev) {
@@ -62,6 +63,7 @@
         var ey = cross(ez, ex);
         var yl = dot(h, ey);
         var xl = dot(h, ex);
+        send_acc_z=accg.z;
         return {
             a: {x: acc.x, y: acc.y, z: acc.z},
             ag: {x: accg.x, y: accg.y, z: accg.z},
@@ -240,7 +242,7 @@
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
         // 출력부분
-        value.textContent = calculate_val();
+        value.textContent = send_acc_z;
         
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
