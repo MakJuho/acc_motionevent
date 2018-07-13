@@ -20,6 +20,7 @@
     var abs = function (a) {
         return Math.sqrt(dot(a, a));
     };
+    // var speed_float
     // 내가 짠 부분
     var calculate_val = function(ev){
         var acc = ev.acceleration,
@@ -33,7 +34,7 @@
         if(gabOfTime > 100){
 
             lastTime = currentTime;
-            speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
+            var speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
 
             lastX=acc.x;
             lastY=acc.y;
@@ -169,7 +170,7 @@
         c2d.strokeStyle = "black";
         c2d.stroke();
         drawChart(c2d, zl1s, "red");
-        drawChart(c2d, zl2s, "blue");
+        // drawChart(c2d, zl2s, "blue");
     };
 
 
@@ -238,7 +239,8 @@
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
-        value.textContent = speed_float;
+        value.textContent = tmp_vibrate;
+        
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
     };
