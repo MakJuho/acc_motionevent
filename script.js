@@ -23,27 +23,26 @@
     // var speed_float;
     // var gabOfTime;
     // 내가 짠 부분
-    // var calculate_val = function(ev){
-    //     var acc = ev.acceleration,
-    //         accg = ev.accelerationIncludingGravity;
-
-    //     var lastX, lastY, lastZ;
+    var calculate_val = function(){
+        // var lastX, lastY, lastZ;
        
-    //     var currentTime =+ new Date();
+        // var currentTime =+ new Date();
 
-    //     gabOfTime = (currentTime-lastTime);
+        // gabOfTime = (currentTime-lastTime);
 
-    //     if(gabOfTime > 100){
+        // if(gabOfTime > 100){
 
-    //         lastTime = currentTime;
-    //         speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
+        //     lastTime = currentTime;
+        //     speed_float = Math.abs(v2.xn.value+v2.yn.value+v2.zn.value - lastX - lastY - lastZ) / gabOfTime * 10000;
 
-    //         lastX=acc.x;
-    //         lastY=acc.y;
-    //         lastZ=acc.z;
-    //     }
-    //     acc.x;
-    // }    
+        //     lastX=acc.x;
+        //     lastY=acc.y;
+        //     lastZ=acc.z;
+        // }
+        speed_float = v2.xn.value+v2.yn.value+v2.zn.value;
+
+        return speed_float;
+    }    
     
     // split vertical/horizontal elements of acceleration
     var splitVH = function (ev) {
@@ -241,7 +240,7 @@
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
         // 출력부분
-        value.textContent = v2.xn.value;
+        value.textContent = calculate_val();
         
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
