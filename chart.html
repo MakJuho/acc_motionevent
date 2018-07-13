@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>진동측정</title>
+  <script type="text/javascript">
+  <script src="script.js"/></script>
+  <script>
+    window.onload = function () {
+// 데이터 값  
+
+      var dps = [{
+        x: 0,
+        y: 0
+      }]; //dataPoints. 
+
+      var chart = new CanvasJS.Chart("chartContainer", {
+        title: {
+          text: "Live Data"
+        },
+        axisX: {
+          title: "Axis X Title"
+        },
+        axisY: {
+          title: "Units"
+        },
+        data: [{
+          type: "line",
+          dataPoints: dps
+        }]
+      });
+
+      chart.render();
+      
+      var xVal = dps.length + 1;
+      var yVal = 15;
+      var updateInterval = 500;
+      var time =+ new Date();
+      var updateChart = function () {
+
+
+        yVal = calculate_val();
+        dps.push({
+          x: xVal,
+          y: yVal
+        });
+
+        xVal++;
+        if (dps.length > 10) {
+          dps.shift();
+        }
+
+        chart.render();
+
+        // update chart after specified time. 
+
+      };
+
+      setInterval(function () {
+        updateChart()
+      }, updateInterval);
+    }
+  </script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+
+<body>
+  <div id="chartContainer" style="height: 300px; width: 100%;">
+  </div>
+</body>
+
+</html>
