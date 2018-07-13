@@ -47,7 +47,7 @@
             lastTime=currentTime;   
         }
 
-        return currentTime;
+        return gabOfTime;
     }
 
     // split vertical/horizontal elements of acceleration
