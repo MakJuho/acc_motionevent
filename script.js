@@ -31,6 +31,7 @@
     
     var gabOfTime;
     var currentTime;
+    var lastTime;
     var speed_float;
     // var speed_float;
     // var gabOfTime;
@@ -46,7 +47,7 @@
             
         }
 
-        return gabOfTime;
+        return currentTime;
     }
 
     // split vertical/horizontal elements of acceleration
