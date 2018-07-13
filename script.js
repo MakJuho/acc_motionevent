@@ -29,6 +29,7 @@
         var lastX, lastY, lastZ;
        
         var currentTime =+ new Date();
+
         var gabOfTime = (currentTime-lastTime);
 
         if(gabOfTime > 100){
@@ -40,6 +41,7 @@
             lastY=acc.y;
             lastZ=acc.z;
         }
+        return gabOfTime;
     }    
     
     // split vertical/horizontal elements of acceleration
@@ -238,7 +240,8 @@
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
-        value.textContent = speed_float;
+        // 출력부분
+        value.textContent = calculate_val();
         
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
