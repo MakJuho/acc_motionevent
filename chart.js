@@ -1,4 +1,4 @@
-  document.write('<script type="text/javascript" src="script.js"></script>');
+  // document.write('<script type="text/javascript" src="script.js"></script>');
   window.onload = function () {
     // 데이터 값  
 
@@ -28,13 +28,13 @@
     chart.render();
 
     var xVal = dps.length + 1;
-    var yVal = 15;
+    var yVal = time_knowing();
     var updateInterval = 500;
 
     var updateChart = function () {
 
 
-      yVal = time_knowing();
+      // yVal = time_knowing();
 
       dps.push({
         x: xVal,
