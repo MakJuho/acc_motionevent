@@ -34,14 +34,12 @@
 
     var gabOfTime;
     var currentTime;
-    var lastTime;
+    var lastTime=0;
     // var speed_float;
     // var gabOfTime;
     // 내가 짠 부분
     var calculate_val = function () {
 
-        
-        
         currentTime=+ new Date();
         gabOfTime= (currentTime-lastTime);
 
