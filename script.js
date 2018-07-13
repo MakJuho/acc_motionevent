@@ -20,30 +20,30 @@
     var abs = function (a) {
         return Math.sqrt(dot(a, a));
     };
-    var speed_float;
-    var gabOfTime;
+    // var speed_float;
+    // var gabOfTime;
     // 내가 짠 부분
-    var calculate_val = function(ev){
-        var acc = ev.acceleration,
-            accg = ev.accelerationIncludingGravity;
+    // var calculate_val = function(ev){
+    //     var acc = ev.acceleration,
+    //         accg = ev.accelerationIncludingGravity;
 
-        // var lastX, lastY, lastZ;
+    //     var lastX, lastY, lastZ;
        
-        // var currentTime =+ new Date();
+    //     var currentTime =+ new Date();
 
-        // gabOfTime = (currentTime-lastTime);
+    //     gabOfTime = (currentTime-lastTime);
 
-        // if(gabOfTime > 100){
+    //     if(gabOfTime > 100){
 
-        //     lastTime = currentTime;
-        //     speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
+    //         lastTime = currentTime;
+    //         speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
 
-        //     lastX=acc.x;
-        //     lastY=acc.y;
-        //     lastZ=acc.z;
-        // }
-        // acc.x;
-    }    
+    //         lastX=acc.x;
+    //         lastY=acc.y;
+    //         lastZ=acc.z;
+    //     }
+    //     acc.x;
+    // }    
     
     // split vertical/horizontal elements of acceleration
     var splitVH = function (ev) {
