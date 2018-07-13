@@ -20,7 +20,7 @@
     var abs = function (a) {
         return Math.sqrt(dot(a, a));
     };
-    // var speed_float
+    var speed_float
     // 내가 짠 부분
     var calculate_val = function(ev){
         var acc = ev.acceleration,
@@ -34,13 +34,12 @@
         if(gabOfTime > 100){
 
             lastTime = currentTime;
-            var speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
+            speed_float = Math.abs(acc.x + acc.y + acc.z - lastX - lastY - lastZ) / gabOfTime * 10000;
 
             lastX=acc.x;
             lastY=acc.y;
             lastZ=acc.z;
         }
-        return speed_float;
     }    
     
     // split vertical/horizontal elements of acceleration
@@ -239,7 +238,7 @@
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
-        value.textContent = calculate_val;
+        value.textContent = speed_float;
         
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
@@ -252,7 +251,7 @@
             var vh = splitVH(ev);
             walking(vh);
             recordXYZ(vh);
-            
+
 
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
@@ -264,7 +263,8 @@
         // setTimeout(updateValue(), 10000);
         
         updateValue();
-        
+        calculate_val();
+
         if (lastvh) {
             showAccel(v1, lastvh.a);
             showAccel(v2, lastvh.ag);
