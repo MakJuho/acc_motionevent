@@ -35,6 +35,7 @@
     var gabOfTime;
     var currentTime;
     var lastTime=0;
+    
     // var speed_float;
     // var gabOfTime;
     // 내가 짠 부분
@@ -55,6 +56,10 @@
         return speed_float;
     }
 
+    var time_knowing = function(){
+        var time =+ new Date();
+        return time;
+    }
     // split vertical/horizontal elements of acceleration
     var splitVH = function (ev) {
         var acc = ev.acceleration, accg = ev.accelerationIncludingGravity;
