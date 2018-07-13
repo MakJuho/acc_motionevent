@@ -1,4 +1,4 @@
-
+  document.write('<script type="text/javascript" src="script.js"></script>');
   window.onload = function () {
     // 데이터 값  
 
@@ -11,13 +11,13 @@
 
     var chart = new CanvasJS.Chart("chartContainer", {
       title: {
-        text: "Live Data"
+        text: "진동 측정"
       },
       axisX: {
-        title: "Axis X Title"
+        title: "시간"
       },
       axisY: {
-        title: "Units"
+        title: "진동 세기"
       },
       data: [{
         type: "line",
