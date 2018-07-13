@@ -43,7 +43,7 @@
         currentTime=+ new Date();
         gabOfTime= (currentTime-lastTime);
 
-        if(gabOfTime>1000){
+        if(gabOfTime>100){
             lastTime=currentTime;   
             speed_float= Math.abs(send_acc_x+send_acc_y+send_acc_z-lastX-lastY-lastZ) / gabOfTime*10000;
 
