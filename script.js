@@ -31,14 +31,22 @@
     
     var gabOfTime;
     var currentTime;
-
+    var speed_float;
     // var speed_float;
     // var gabOfTime;
     // 내가 짠 부분
     var calculate_val = function () {
-        var speed_float=send_acc_x+send_acc_y+send_acc_z;
 
-        return speed_float;
+        currentTime=+ new Date();
+        gabOfTime= (currentTime-lastTime);
+
+        if(gabOfTime>100){
+            lastTime=currentTime;
+
+            
+        }
+
+        return gabOfTime;
     }
 
     // split vertical/horizontal elements of acceleration
