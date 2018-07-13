@@ -31,7 +31,7 @@
        
         var currentTime =+ new Date();
 
-        var gabOfTime = (currentTime-lastTime);
+        gabOfTime = (currentTime-lastTime);
 
         if(gabOfTime > 100){
 
