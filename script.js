@@ -266,7 +266,7 @@
         // setTimeout(updateValue(), 10000);
         
         updateValue();
-        calculate_val();
+        // calculate_val();
 
         if (lastvh) {
             showAccel(v1, lastvh.a);
