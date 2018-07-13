@@ -239,7 +239,7 @@
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
-        value.textContent = tmp_vibrate;
+        value.textContent = calculate_val;
         
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
