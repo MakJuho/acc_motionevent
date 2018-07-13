@@ -43,7 +43,7 @@
         currentTime=+ new Date();
         gabOfTime= (currentTime-lastTime);
 
-        if(gabOfTime>100){
+        if(gabOfTime>2000){
             lastTime=currentTime;   
         }
 
