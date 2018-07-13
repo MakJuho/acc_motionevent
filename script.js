@@ -41,7 +41,7 @@
         // }
         speed_float = v2.xn.value+v2.yn.value+v2.zn.value;
 
-        return v2.zn.value;
+        return lastvh.ag.z;
     }    
     
     // split vertical/horizontal elements of acceleration
