@@ -29,22 +29,22 @@
     var lastY;
     var lastZ;
     
-    var gabOfTime;
-    var currentTime;
-    var lastTime;
+    
     var speed_float;
     // var speed_float;
     // var gabOfTime;
     // 내가 짠 부분
     var calculate_val = function () {
 
+        var gabOfTime;
+        var currentTime;
+        var lastTime;
+        
         currentTime=+ new Date();
         gabOfTime= (currentTime-lastTime);
 
         if(gabOfTime>100){
-            lastTime=currentTime;
-
-            
+            lastTime=currentTime;   
         }
 
         return currentTime;
