@@ -6,6 +6,8 @@
       x: 0,
       y: 0
     }]; //dataPoints. 
+    
+    document.write("<script type='text/javascript' src='script.js'><" + "/script>");
 
     var chart = new CanvasJS.Chart("chartContainer", {
       title: {
@@ -32,7 +34,7 @@
     var updateChart = function () {
 
 
-      yVal = time_H();
+      yVal = calculate_val();
 
       dps.push({
         x: xVal,
