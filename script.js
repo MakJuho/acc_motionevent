@@ -20,31 +20,27 @@
     var abs = function (a) {
         return Math.sqrt(dot(a, a));
     };
+
+    var send_acc_x;
+    var send_acc_y;
+    var send_acc_z;
+
+    var lastX;
+    var lastY;
+    var lastZ;
+    
+    var gabOfTime;
+    var currentTime;
+
     // var speed_float;
     // var gabOfTime;
     // 내가 짠 부분
-    var calculate_val = function(){
-        // var lastX, lastY, lastZ;
-       
-        // var currentTime =+ new Date();
+    var calculate_val = function () {
+        var speed_float=send_acc_x+send_acc_y+send_acc_z;
 
-        // gabOfTime = (currentTime-lastTime);
+        return speed_float;
+    }
 
-        // if(gabOfTime > 100){
-
-        //     lastTime = currentTime;
-        //     speed_float = Math.abs(v2.xn.value+v2.yn.value+v2.zn.value - lastX - lastY - lastZ) / gabOfTime * 10000;
-
-        //     lastX=acc.x;
-        //     lastY=acc.y;
-        //     lastZ=acc.z;
-        // }
-        speed_float = v2.xn.value+v2.yn.value+v2.zn.value;
-
-        return splitVH().ag.z;
-    }    
-    var send_acc_z;
-    
     // split vertical/horizontal elements of acceleration
     var splitVH = function (ev) {
         var acc = ev.acceleration, accg = ev.accelerationIncludingGravity;
@@ -63,7 +59,11 @@
         var ey = cross(ez, ex);
         var yl = dot(h, ey);
         var xl = dot(h, ex);
-        send_acc_z=accg.z;
+        
+        send_acc_x = accg.x;
+        send_acc_y = accg.y;
+        send_acc_z = accg.z;
+        
         return {
             a: {x: acc.x, y: acc.y, z: acc.z},
             ag: {x: accg.x, y: accg.y, z: accg.z},
@@ -242,7 +242,7 @@
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
         // 출력부분
-        value.textContent = send_acc_z;
+        value.textContent = calculate_val();
         
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
