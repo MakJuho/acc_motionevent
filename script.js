@@ -42,7 +42,6 @@
             lastY=acc.y;
             lastZ=acc.z;
         }
-        return gabOfTime;
     }    
     
     // split vertical/horizontal elements of acceleration
