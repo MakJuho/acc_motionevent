@@ -170,7 +170,7 @@
         c2d.strokeStyle = "black";
         c2d.stroke();
         drawChart(c2d, zl1s, "red");
-        drawChart(c2d, zl2s, "blue");
+        // drawChart(c2d, zl2s, "blue");
     };
 
 
