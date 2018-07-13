@@ -43,11 +43,16 @@
         currentTime=+ new Date();
         gabOfTime= (currentTime-lastTime);
 
-        if(gabOfTime>2000){
+        if(gabOfTime>1000){
             lastTime=currentTime;   
+            speed_float= Math.abs(send_acc_x+send_acc_y+send_acc_z-lastX-lastY-lastZ) / gabOfTime*10000;
+
+            lastX = send_acc_x;
+            lastY = send_acc_y;
+            lastZ = send_acc_z;
         }
 
-        return lastTime;
+        return speed_float;
     }
 
     // split vertical/horizontal elements of acceleration
