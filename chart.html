@@ -6,6 +6,7 @@
   <title>진동측정</title>
   <script type="text/javascript">
   <script src="script.js"/></script>
+
   <script>
     window.onload = function () {
 // 데이터 값  
@@ -36,11 +37,12 @@
       var xVal = dps.length + 1;
       var yVal = 15;
       var updateInterval = 500;
-      var time =+ new Date();
+
       var updateChart = function () {
 
 
-        yVal = calculate_val();
+        yVal = time_H();
+        
         dps.push({
           x: xVal,
           y: yVal
@@ -62,6 +64,10 @@
       }, updateInterval);
     }
   </script>
+  <div>
+    진동 값1754:
+    <span id="val">0</span>
+  </div>
   <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 
