@@ -1,4 +1,4 @@
-document.write("<script src='graph.js'></script>");
+// document.write("<script src='graph.js'></script>");
 ;window.addEventListener("load", function () {
     "use strict";
 
@@ -37,25 +37,25 @@ document.write("<script src='graph.js'></script>");
     var currentTime;
     var lastTime=0;
     
-    // var speed_float;
-    // var gabOfTime;
+    var speed_float;
+    var gabOfTime;
     // 내가 짠 부분
-    // var calculate_val = function () {
+    var calculate_val = function () {
 
-    //     currentTime=+ new Date();
-    //     gabOfTime= (currentTime-lastTime);
+        currentTime=+ new Date();
+        gabOfTime= (currentTime-lastTime);
 
-    //     if(gabOfTime>100){
-    //         lastTime=currentTime;   
-    //         speed_float= Math.abs(send_acc_x+send_acc_y+send_acc_z-lastX-lastY-lastZ) / gabOfTime*10000;
-    //         speed_float=Math.floor(speed_float);
-    //         lastX = send_acc_x;
-    //         lastY = send_acc_y;
-    //         lastZ = send_acc_z;
-    //     }
+        if(gabOfTime>100){
+            lastTime=currentTime;   
+            speed_float= Math.abs(send_acc_x+send_acc_y+send_acc_z-lastX-lastY-lastZ) / gabOfTime*10000;
+            speed_float=Math.floor(speed_float);
+            lastX = send_acc_x;
+            lastY = send_acc_y;
+            lastZ = send_acc_z;
+        }
 
-    //     return speed_float;
-    // }
+        return speed_float;
+    }
 
     
 
@@ -313,4 +313,56 @@ document.write("<script src='graph.js'></script>");
         }
         requestAnimationFrame(loop);
     });
+
+    // plotly.
+
+    var data=speed_float;
+
+    Plotly.plot('chart', [{
+    y: [data],
+    type: 'line'
+    }]);
+
+    Plotly.plot('chart2', [{
+    y: [data],
+    type: 'line'
+    }]);
+
+    var cnt = 0;
+    var mainFrame = document.getElementById("val");
+    var createFrame = document.createElement("div");
+
+    setInterval(function () {
+
+    Plotly.extendTraces('chart', {
+    y: [[data]]
+    }, [0]);
+    Plotly.extendTraces('chart', {
+    y: [[(-1) * data]]
+    }, [0]);
+    cnt += 2;
+
+    createFrame.innerHTML = data;
+    mainFrame.appendChild(createFrame);
+
+    if (cnt > 30) {
+    Plotly.relayout('chart', {
+        xaxis: {
+        range: [cnt - 30, cnt]
+        }
+    })
+    }
+    }, 100);
+
+    setInterval(function () {
+    Plotly.extendTraces('chart2', {
+        y: [
+        [data]
+        ]
+    }, [0]);
+    }, 100);
+
+
 }, false);
+
+
