@@ -1,5 +1,5 @@
-window.onload=function(){
-  var data = time_knowing();
+document.write("<script type='text/javascript' src='script.js'><"+"/script>");  
+var data = val;
 
 // var data = time_knowing();
 // var data=document.getElementById("val");
@@ -49,5 +49,3 @@ setInterval(function () {
     ]
   }, [0]);
 }, 0);
-
-}

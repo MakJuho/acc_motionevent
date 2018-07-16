@@ -1,3 +1,4 @@
+
 ;window.addEventListener("load", function () {
     "use strict";
 
@@ -55,6 +56,8 @@
 
     //     return speed_float;
     // }
+
+    
 
     var time_knowing = function(){
         var time =+ new Date();
