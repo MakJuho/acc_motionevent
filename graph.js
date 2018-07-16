@@ -1,7 +1,7 @@
 // document.write("<script type='text/javascript' src='script.js'><"+"/script>");  
-document.getElementById("val").innerHTML=speed_float;
-var tmp=document.getElementById("val").innerHTML;
-var data = tmp;
+// document.getElementById("val").innerHTML=speed_float;
+// var tmp=document.getElementById("val").innerHTML;
+var data = $('#val').val();
 
 // var data = time_knowing();
 // var data=document.getElementById("val");
