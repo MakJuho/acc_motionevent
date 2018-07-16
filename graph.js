@@ -1,8 +1,26 @@
+document.write("<script src='script.js'></script>");
 // document.write("<script type='text/javascript' src='script.js'><"+"/script>");  
-var tmp=document.getElementById('val').value;
+// var tmp=document.getElementById('val').value;
 // var tmp=document.getElementById("val").innerHTML;
-// var data = $('#val').val();
-var data = tmp
+// var tmp;
+// $(document).ready(function(){
+//     tmp=$('#val').find('span').text();
+// })
+// var tmp=$('#val').find('span').text();
+// var tmp = $('#val').value;
+// var div = document.getElementById("val");
+// var spans = div.getElementsByTagName("span");
+
+// var tmp = spans[0];
+// for (i=0; i<spans.length; i++){
+//   tmp=spans[i].innerHTML;
+// }
+// var value=$("#val").val();
+// var tmp=$('#val').find('div').text();
+var data=speed_float;
+// data.push(1);
+// data.push(2);
+// var data = tmp
 // var data = time_knowing();
 // var data=document.getElementById("val");
 

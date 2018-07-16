@@ -1,4 +1,4 @@
-
+document.write("<script src='graph.js'></script>");
 ;window.addEventListener("load", function () {
     "use strict";
 
