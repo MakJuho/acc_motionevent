@@ -20,46 +20,7 @@
     var abs = function (a) {
         return Math.sqrt(dot(a, a));
     };
-
-    var send_acc_x;
-    var send_acc_y;
-    var send_acc_z;
-
-    var lastX;
-    var lastY;
-    var lastZ;
     
-    
-    var speed_float;
-
-    var gabOfTime;
-    var currentTime;
-    var lastTime=0;
-    
-    // var speed_float;
-    // var gabOfTime;
-    // 내가 짠 부분
-    var calculate_val = function () {
-
-        currentTime=+ new Date();
-        gabOfTime= (currentTime-lastTime);
-
-        if(gabOfTime>100){
-            lastTime=currentTime;   
-            speed_float= Math.abs(send_acc_x+send_acc_y+send_acc_z-lastX-lastY-lastZ) / gabOfTime*10000;
-            speed_float=Math.floor(speed_float);
-            lastX = send_acc_x;
-            lastY = send_acc_y;
-            lastZ = send_acc_z;
-        }
-
-        return speed_float;
-    }
-
-    var time_knowing = function(){
-        var time =+ new Date();
-        return time;
-    }
     // split vertical/horizontal elements of acceleration
     var splitVH = function (ev) {
         var acc = ev.acceleration, accg = ev.accelerationIncludingGravity;
@@ -78,11 +39,6 @@
         var ey = cross(ez, ex);
         var yl = dot(h, ey);
         var xl = dot(h, ex);
-        
-        send_acc_x = accg.x;
-        send_acc_y = accg.y;
-        send_acc_z = accg.z;
-        
         return {
             a: {x: acc.x, y: acc.y, z: acc.z},
             ag: {x: accg.x, y: accg.y, z: accg.z},
@@ -98,7 +54,7 @@
     var zlsize = 300;
     var zl1s = new Array(zlsize);
     var zl2s = new Array(zlsize);
-    for (var i = 0; i < zlsize; i++) zl1s[i] = zl2s[i] = 0.0; 
+    for (var i = 0; i < zlsize; i++) zl1s[i] = zl2s[i] = 0.0;
     var cur = 0;
     var recordXYZ = function (vh) {
         lastvh = vh;
@@ -179,7 +135,6 @@
         c2d.restore();
     };
     // z accel view
-
     var zview = document.getElementById("zview");
     var drawZ = function (vh) {
         var c2d = zview.getContext("2d");
@@ -206,6 +161,7 @@
         for (var i = (start + 1) % zlsize; i < zlsize; i++) {
             x += dx;
             c2d.lineTo(x, center + data[i] * -unit);
+            // document.getElementById("vibrate_value").innerHTML=data[i];
         }
         for (var i = 0; i < start; i++) {
             x += dx;
@@ -255,16 +211,12 @@
         updown = 0;
     }, false);
     
-    var value = document.getElementById("val");
+    var value = document.getElementById("vibrate_value");
     var updateValue = function(){
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
-        // 출력부분
-        value.textContent = calculate_val();
-        
-        // 값은 tmp_vibrate로 넘겨준다.
-        // id 하나를 지정하고 거기에 값을 넣어준다.
+        value.textContent = tmp_vibrate;
     };
 
     // Event Handlers
@@ -272,10 +224,9 @@
     window.addEventListener("devicemotion", function (ev) {
         try {
             var vh = splitVH(ev);
-
             walking(vh);
             recordXYZ(vh);
-
+            
 
         } catch (ex) {
             document.getElementById("log").textContent = ex.toString();
@@ -284,11 +235,10 @@
 
     requestAnimationFrame(function loop() {
         updateWalking();
-
+        setTimeout(updateValue(), 10000);
+        // updateValue();
         
-        updateValue();
-
-
+        
         if (lastvh) {
             showAccel(v1, lastvh.a);
             showAccel(v2, lastvh.ag);
