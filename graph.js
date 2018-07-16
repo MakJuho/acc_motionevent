@@ -1,4 +1,4 @@
-var data = value;
+var data = speed_float;
 // var data=document.getElementById("val");
 
 // data에 값을 꾸준히 넣어서 그래프에 표시되도록 해야한다.
@@ -46,3 +46,4 @@ setInterval(function () {
     ]
   }, [0]);
 }, 0);
+
