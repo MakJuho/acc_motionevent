@@ -1,5 +1,6 @@
-document.write("<script type='text/javascript' src='script.js'><"+"/script>");  
-var data = val;
+// document.write("<script type='text/javascript' src='script.js'><"+"/script>");  
+var tmp=document.getElementById("val").innerHTML
+var data = tmp;
 
 // var data = time_knowing();
 // var data=document.getElementById("val");
@@ -48,4 +49,4 @@ setInterval(function () {
       [data]
     ]
   }, [0]);
-}, 0);
+}, 100);
