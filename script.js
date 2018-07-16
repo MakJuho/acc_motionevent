@@ -135,8 +135,6 @@
         c2d.restore();
     };
     // z accel view
-  
-
     var zview = document.getElementById("zview");
     var drawZ = function (vh) {
         var c2d = zview.getContext("2d");
@@ -220,10 +218,7 @@
         tmp_vibrate=Math.floor(tmp_vibrate);
         value.textContent = tmp_vibrate;
     };
-    
-    // var time =+ new Date();
-    // var value=document.getElementById("val");
-    // value.innerHTML=time;
+
     // Event Handlers
     // see: http://www.w3.org/TR/orientation-event/
     window.addEventListener("devicemotion", function (ev) {
