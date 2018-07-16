@@ -22,6 +22,7 @@
         return Math.sqrt(dot(a, a));
     };
 
+    var data;
     var send_acc_x;
     var send_acc_y;
     var send_acc_z;
@@ -63,6 +64,7 @@
         var time =+ new Date();
         return time;
     }
+
     // split vertical/horizontal elements of acceleration
     var splitVH = function (ev) {
         var acc = ev.acceleration, accg = ev.accelerationIncludingGravity;
@@ -277,7 +279,7 @@
         }
         // 출력부분
         value.textContent = speed_float;
-        
+        data=speed_float;
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
     };
@@ -316,7 +318,7 @@
 
     // plotly.
 
-    var data=speed_float;
+    
 
     Plotly.plot('chart', [{
     y: [data],
@@ -334,32 +336,32 @@
 
     setInterval(function () {
 
-    Plotly.extendTraces('chart', {
-    y: [[data]]
-    }, [0]);
-    Plotly.extendTraces('chart', {
-    y: [[(-1) * data]]
-    }, [0]);
-    cnt += 2;
+        Plotly.extendTraces('chart', {
+        y: [[data]]
+        }, [0]);
+        Plotly.extendTraces('chart', {
+        y: [[(-1) * data]]
+        }, [0]);
+        cnt += 2;
 
-    createFrame.innerHTML = data;
-    mainFrame.appendChild(createFrame);
+        createFrame.innerHTML = data;
+        mainFrame.appendChild(createFrame);
 
-    if (cnt > 30) {
-    Plotly.relayout('chart', {
-        xaxis: {
-        range: [cnt - 30, cnt]
+        if (cnt > 30) {
+        Plotly.relayout('chart', {
+            xaxis: {
+            range: [cnt - 30, cnt]
+            }
+        })
         }
-    })
-    }
-    }, 100);
+        }, 100);
 
-    setInterval(function () {
-    Plotly.extendTraces('chart2', {
-        y: [
-        [data]
-        ]
-    }, [0]);
+        setInterval(function () {
+        Plotly.extendTraces('chart2', {
+            y: [
+            [data]
+            ]
+        }, [0]);
     }, 100);
 
 
