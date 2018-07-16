@@ -30,17 +30,17 @@
     var xVal = dps.length + 1;
     var yVal = time_knowing();
     var updateInterval = 500;
+    
 
     var updateChart = function () {
 
 
       // yVal = time_knowing();
-
       dps.push({
         x: xVal,
         y: yVal
+        
       });
-
       xVal++;
       if (dps.length > 10) {
         dps.shift();
