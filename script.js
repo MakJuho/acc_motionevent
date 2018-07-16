@@ -39,22 +39,22 @@
     // var speed_float;
     // var gabOfTime;
     // 내가 짠 부분
-    var calculate_val = function () {
+    // var calculate_val = function () {
 
-        currentTime=+ new Date();
-        gabOfTime= (currentTime-lastTime);
+    //     currentTime=+ new Date();
+    //     gabOfTime= (currentTime-lastTime);
 
-        if(gabOfTime>100){
-            lastTime=currentTime;   
-            speed_float= Math.abs(send_acc_x+send_acc_y+send_acc_z-lastX-lastY-lastZ) / gabOfTime*10000;
-            speed_float=Math.floor(speed_float);
-            lastX = send_acc_x;
-            lastY = send_acc_y;
-            lastZ = send_acc_z;
-        }
+    //     if(gabOfTime>100){
+    //         lastTime=currentTime;   
+    //         speed_float= Math.abs(send_acc_x+send_acc_y+send_acc_z-lastX-lastY-lastZ) / gabOfTime*10000;
+    //         speed_float=Math.floor(speed_float);
+    //         lastX = send_acc_x;
+    //         lastY = send_acc_y;
+    //         lastZ = send_acc_z;
+    //     }
 
-        return speed_float;
-    }
+    //     return speed_float;
+    // }
 
     var time_knowing = function(){
         var time =+ new Date();
@@ -260,6 +260,18 @@
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
         tmp_vibrate=Math.floor(tmp_vibrate);
+        
+        currentTime = +new Date();
+        gabOfTime = (currentTime - lastTime);
+
+        if (gabOfTime > 100) {
+            lastTime = currentTime;
+            speed_float = Math.abs(send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ) / gabOfTime * 10000;
+            speed_float = Math.floor(speed_float);
+            lastX = send_acc_x;
+            lastY = send_acc_y;
+            lastZ = send_acc_z;
+        }
         // 출력부분
         value.textContent = speed_float;
         
