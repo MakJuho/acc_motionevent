@@ -211,7 +211,7 @@
         updown = 0;
     }, false);
     
-    var value = document.getElementById("vibrate_value");
+    var value = document.getElementById("val");
     var updateValue = function(){
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
