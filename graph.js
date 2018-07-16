@@ -1,4 +1,5 @@
-document.write("<script type='text/javascript' src='script.js'><"+"/script>");  
+// document.write("<script type='text/javascript' src='script.js'><"+"/script>");  
+document.getElementById("val").innerHTML='<object type="type/html" data="Make_graph.html" ></object>';
 var tmp=document.getElementById("val").innerHTML;
 var data = tmp;
 
