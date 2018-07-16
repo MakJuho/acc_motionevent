@@ -1,5 +1,5 @@
-// document.write("<script type='text/javascript' src='script.js'><"+"/script>");  
-var tmp=document.getElementById("val").innerHTML
+document.write("<script type='text/javascript' src='script.js'><"+"/script>");  
+var tmp=document.getElementById("val").innerHTML;
 var data = tmp;
 
 // var data = time_knowing();
