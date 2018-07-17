@@ -268,15 +268,16 @@
         
         currentTime = +new Date();
         gabOfTime = (currentTime - lastTime);
-
-
-        if (gabOfTime > 100) {
-            lastTime = currentTime;
-            speed_float = Math.abs(send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ) / gabOfTime * 10000;
-            speed_float = Math.floor(speed_float);
-            lastX = send_acc_x;
-            lastY = send_acc_y;
-            lastZ = send_acc_z;
+        var acc=send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ
+            if(acc!=0){
+                if (gabOfTime > 100) {
+                    lastTime = currentTime;
+                    speed_float = Math.abs(acc) / gabOfTime * 10000;
+                    speed_float = Math.floor(speed_float);
+                    lastX = send_acc_x;
+                    lastY = send_acc_y;
+                    lastZ = send_acc_z;
+                }
         }
         // x축에 대한 가속도 데시벨
      
