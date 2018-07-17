@@ -269,7 +269,7 @@
         currentTime = +new Date();
         gabOfTime = (currentTime - lastTime);
 
-        
+
         if (gabOfTime > 100) {
             lastTime = currentTime;
             speed_float = Math.abs(send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ) / gabOfTime * 10000;
@@ -278,9 +278,11 @@
             lastY = send_acc_y;
             lastZ = send_acc_z;
         }
+        // x축에 대한 가속도 데시벨
+        var result_x=20*Math.log10(send_acc_x*100000);
 
-         value.textContent = speed_float;
-         data = speed_float;
+         value.textContent = result_x;
+         data = result_x;
         // 출력부분
 
         // 값은 tmp_vibrate로 넘겨준다.
