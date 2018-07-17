@@ -269,7 +269,7 @@
         currentTime = +new Date();
         gabOfTime = (currentTime - lastTime);
 
-        if (gabOfTime > 100) {
+        if (gabOfTime > 10) {
             lastTime = currentTime;
             speed_float = Math.abs(send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ) / gabOfTime * 10000;
             speed_float = Math.floor(speed_float);
