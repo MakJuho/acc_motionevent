@@ -282,12 +282,8 @@
             if(speed_float<=1){
                value.textContent=0;
                data=0; 
-            }else if(speed_float<=30){
-                value.textContent=0;
-                data=0;
             }
-            else{
-                
+            else{   
                 value.textContent = 20*Math.log10(speed_float);
                 data=20*Math.log10(speed_float);
             }
