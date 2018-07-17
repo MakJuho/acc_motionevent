@@ -285,7 +285,7 @@
         var result_z = 20 * Math.log10(Math.abs(send_acc_z) * 100000);
 
         var final_val = (result_x + result_y + result_z) / 3
-        value.textContent = result_z;
+        value.textContent = send_acc_z;
         data = result_z;
         // 출력부분
 
