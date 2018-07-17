@@ -8,7 +8,8 @@
 // the resize event.
 var supportsOrientationChange = "onorientationchange" in window,
     orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
-
+screen.orientation.lock();
+screen.lockOrientation("orientation");
 window.addEventListener(orientationEvent, function() {
     if(window.orientation==0)
     {
@@ -26,7 +27,7 @@ window.addEventListener(orientationEvent, function() {
 <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" />
 </head>
 <body>
-  <h1>1054</h1>
+  <h1>1059</h1>
 <div id="portrait" style="width:100%;height:100%;font-size:20px;">Portrait</div>
 <div id="landscape" style="width:100%;height:100%;font-size:20px;">Landscape</div>
 
