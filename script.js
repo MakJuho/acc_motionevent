@@ -271,8 +271,10 @@
 
         if (gabOfTime > 100) {
             lastTime = currentTime;
-            speed_float = Math.abs(send_acc_x + send_acc_y + send_acc_z-9.8 - lastX - lastY - lastZ) / gabOfTime * 10000;
-            speed_float = Math.floor(speed_float);
+            // speed_float = Math.abs(send_acc_x + send_acc_y + send_acc_z-9.8 - lastX - lastY - lastZ) / gabOfTime * 10000;
+            speed_float = Math.abs(send_acc_x+send_acc_y+send_acc_z-lastX-lastY-lastZ)/gabOfTime*100000;
+            speed_float = 20*log10(speed_float);
+            // speed_float = Math.floor(speed_float);
             lastX = send_acc_x;
             lastY = send_acc_y;
             lastZ = send_acc_z;
