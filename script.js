@@ -277,14 +277,17 @@
             lastY = send_acc_y;
             lastZ = send_acc_z;
         
+
+            value.textContent = speed_float;
+            data=speed_float;
         // 출력부분
-            if(speed_float>1){
-                value.textContent = Math.log10(speed_float);
-                data=Math.log10(speed_float);
-            }else{
-                value.textContent = speed_float;
-                data=speed_float;
-            }
+            // if(speed_float>1){
+            //     value.textContent = speed_float;
+            //     data=speed_float;
+            // }else{
+            //     value.textContent = speed_float;
+            //     data=speed_float;
+            // }
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
         }
