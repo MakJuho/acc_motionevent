@@ -272,7 +272,7 @@
         if (gabOfTime > 100) {
             lastTime = currentTime;
             speed_float = Math.abs(send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ) / gabOfTime * 100000;
-            // speed_float = Math.floor(speed_float);
+            speed_float = Math.floor(speed_float);
             lastX = send_acc_x;
             lastY = send_acc_y;
             lastZ = send_acc_z;
@@ -371,7 +371,7 @@
             }
         })
         }
-        }, 0);
+        }, 200);
 
         setInterval(function () {
         Plotly.extendTraces('chart2', {
@@ -379,7 +379,7 @@
             [data]
             ]
         }, [0]);
-    }, 0);
+    }, 200);
 
 
 }, false);
