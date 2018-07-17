@@ -277,17 +277,20 @@
             lastY = send_acc_y;
             lastZ = send_acc_z;
         
-            value.textContent = speed_float;
-            data=speed_float;
-    
-            
-            // if(speed_float<=1){
-            //     value.textContent = 20*speed_float;
-            //     data=20*speed_float;
-            // }else{
-            //     value.textContent = 20*Math.log10(speed_float);
-            //     data=20*Math.log10(speed_float);
-            // }
+            // value.textContent = speed_float;
+            // data=speed_float;
+            if(speed_float<=1){
+               value.textContent=0;
+               data=0; 
+            }else if(speed_float<=30){
+                value.textContent=0;
+                data=0;
+            }
+            else{
+                
+                value.textContent = 20*Math.log10(speed_float);
+                data=20*Math.log10(speed_float);
+            }
         // 출력부분
             // if(speed_float>1){
             //     value.textContent = speed_float;
