@@ -279,11 +279,8 @@
         
             // value.textContent = speed_float;
             // data=speed_float;
-            if(speed_float<=1){
-               value.textContent=0;
-               data=0; 
-            }
-            else{   
+            
+            if(speed_float>1){
                 value.textContent = 20*Math.log10(speed_float);
                 data=20*Math.log10(speed_float);
             }
