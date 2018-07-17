@@ -274,9 +274,9 @@
             var acc = Math.abs(send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ);
 
             if(acc > 0){
-                speed_float = acc/gabOfTime * 0.00001;
+                speed_float = acc/gabOfTime/0.00001;
                 // speed_float = Math.abs(send_acc_x+send_acc_y+send_acc_z-lastX-lastY-lastZ)/gabOfTime;
-                speed_float = 20*Math.log10(speed_float);
+                speed_float = 10*Math.log10(speed_float);
                 
                 // speed_float = Math.floor(speed_float);
                 lastX = send_acc_x;
