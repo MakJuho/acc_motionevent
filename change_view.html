@@ -18,18 +18,18 @@ window.addEventListener(orientationEvent, function() {
       document.getElementById('portrait').style.display = '';
       document.getElementById('landscape').style.display = 'none';
     }
-    // else if(window.orientation==90)
-    // {
-    //   document.getElementById('portrait').style.display = 'none';
-    //   document.getElementById('landscape').style.display = '';
-    // }
+    else if(window.orientation==90)
+    {
+      document.getElementById('portrait').style.display = 'block';
+      document.getElementById('landscape').style.display = 'block';
+    }
 }, false);
 </script>
 <meta name="HandheldFriendly" content="true" />
 <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" />
 </head>
 <body>
-  <h1>11107</h1>
+  <h1>1115</h1>
 <div id="portrait" style="width:100%;height:100%;font-size:20px;">Portrait</div>
 <div id="landscape" style="width:100%;height:100%;font-size:20px;">Landscape</div>
 
@@ -39,11 +39,11 @@ if(window.orientation==0)
   document.getElementById('portrait').style.display = '';
   document.getElementById('landscape').style.display = 'none';
 }
-// else if(window.orientation==90)
-// {
-//   document.getElementById('portrait').style.display = 'none';
-//   document.getElementById('landscape').style.display = '';
-// }
+else if(window.orientation==90)
+{
+  document.getElementById('portrait').style.display = 'block';
+  document.getElementById('landscape').style.display = 'block';
+}
 </script>
 </body>
 </html>
