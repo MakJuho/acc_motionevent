@@ -278,8 +278,10 @@
             lastZ = send_acc_z;
         }
         // 출력부분
-        value.textContent = Math.log10(speed_float);
-        data=Math.log10(speed_float);
+        if(speed_float>0){
+            value.textContent = Math.log10(speed_float);
+            data=Math.log10(speed_float);
+        }
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
     };
