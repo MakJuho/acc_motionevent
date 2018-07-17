@@ -279,23 +279,21 @@
             lastZ = send_acc_z;
         }
         // x축에 대한 가속도 데시벨
-        if(send_acc_x>0){
-            if(send_acc_y>0){
-                if(send_acc_z>0){
-                    var result_x = 20 * Math.log10(send_acc_x * 100000);
-                    var result_y = 20 * Math.log10(send_acc_y * 100000);
-                    var result_z = 20 * Math.log10(abs(send_acc_z - 9.8) * 100000);
+     
+        var result_x = 20 * Math.log10(abs(send_acc_x) * 100000);
+        var result_y = 20 * Math.log10(abs(send_acc_y) * 100000);
+        var result_z = 20 * Math.log10((abs(send_acc_z) - 9.8) * 100000);
 
-                    var final_val = (result_x + result_y + result_z) / 3
-                    value.textContent = final_val;
-                    data = final_val;
-                    // 출력부분
+        var final_val = (result_x + result_y + result_z) / 3
+        value.textContent = final_val;
+        data = final_val;
+        // 출력부분
 
-                    // 값은 tmp_vibrate로 넘겨준다.
-                    // id 하나를 지정하고 거기에 값을 넣어준다.
-                }
-            }
-        }
+        // 값은 tmp_vibrate로 넘겨준다.
+        // id 하나를 지정하고 거기에 값을 넣어준다.
+                
+            
+        
     };
 
     // Event Handlers
