@@ -282,11 +282,11 @@
      
         var result_x = 20 * Math.log10(Math.abs(send_acc_x) * 100000);
         var result_y = 20 * Math.log10(Math.abs(send_acc_y) * 100000);
-        var result_z = 20 * Math.log10(Math.abs(send_acc_z) * 100000);
+        var result_z = 20 * Math.log10(Math.abs(send_acc_z-9.8) * 100000);
 
         var final_val = (result_x + result_y + result_z) / 3
-        value.textContent = send_acc_z;
-        data = result_z;
+        value.textContent = final_val;
+        data = final_val;
         // 출력부분
 
         // 값은 tmp_vibrate로 넘겨준다.
