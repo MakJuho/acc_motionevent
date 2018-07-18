@@ -9,6 +9,14 @@
 
   <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
   <style>
+       body {
+        background:url('http://superkts.cdn1.cafe24.com/test1.jpg') no-repeat center center fixed;
+        background: black;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
     ul>li {
       display: none;
     }
@@ -37,13 +45,13 @@
       margin: 0;
     }
 
-    p {
+    /* p {
       text-align: center;
       font-size: 40px;
       padding: 0;
       margin: 0;
       /* background-color: rgb(0, 0, 0); */
-    }
+    /* } */
 
     #chart {
       margin: 0;
@@ -58,16 +66,51 @@
       height: 45%;
       /* background-color: rgb(0, 0, 0); */
     }
-   
-    #val{
-      /* display: block; */
-      color: black;
-      text-align: left;
-      padding: 15px 20px;
-      text-decoration: none;
+
+    #container{width:100%; color:white;}
+    #left{float:left;width:100px;}
+    #right{float:right;width:100px;}
+    #center{margin:0 auto;width:100px;}
+    /* .main{
+      background-color: yellow;
+      border: 1px solid red;
+      width: 800px;
+      height: 120px;
+    } 
+
+    .main_common{ 
+      display: inline-block;
+
     }
-    #val{
-      background: color #000000;
+    .content {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .main_1{
+      width: 100px;
+      height: 50px;
+      font-size : 30px;
+      border: 1px solid blue;
+      float : center;
+      
+    }
+    .main_2{
+      width: 100px;
+      height: 50px;
+      font-size : 30px;
+      border: 1px solid blue;
+      float: center;
+    }
+    .main_3{
+      width: 100px;
+      height: 50px;
+      font-size : 30px;
+      border: 1px solid blue;
+      float: right; */
+    /* } */
+    h1{
+      color: white;
     }
   </style>
   
@@ -148,6 +191,17 @@
   </div>
   <div id="chart"></div>
 
+    <!-- <div class="main">
+    <div class="main_1 main_common"><p class="content">test1</p></div>
+    <div class="main_2 main_common"><p class="content">test2</p></div>
+    <div class="main_3 main_common"><p class="content">test3</p></div> -->
+  <div id="container">
+    <div id="left" >1</div>
+    <div id="right" >2</div>
+    <div id="center"> 3</div>
+  </div>
+  </div>
+
   <!-- <ul>
     <li>
       <span id="text">진동값:</span>
@@ -164,8 +218,12 @@
   </ul> -->
 
   <!-- 진동 값 <span id="val" style="overflow-y:auto;"> -->
-  진동 값 <span id="val" style="background: yellow">0</span>
-  <span id="text">쪼아~</span>
+
+  
+  <!-- <div id="vibrate_val" style="background: blue">진동 값 </div>
+  <div id="val" style="background: yellow">0</div> -->
+  <!-- <span id="text" style="background: green">쪼아~</span> -->
+
   <div id="chart2"></div>
   <!-- <div>
 	<span id="val">0</span> -->
