@@ -386,7 +386,7 @@
             }
         })
         }
-        }, 100);
+        }, 200);
 
         setInterval(function () {
         Plotly.extendTraces('chart2', {
@@ -394,7 +394,7 @@
             [data]
             ]
         }, [0]);
-    }, 100);
+    }, 200);
 
 
 }, false);
