@@ -268,33 +268,33 @@
         
         currentTime = +new Date();
         gabOfTime = (currentTime - lastTime);
+        var acc=send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ
 
         if (gabOfTime > 100) {
             lastTime = currentTime;
-            speed_float = Math.abs(send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ) / gabOfTime * 100000;
+            speed_float = Math.abs(acc) / gabOfTime * 10000;
             speed_float = Math.floor(speed_float);
             lastX = send_acc_x;
             lastY = send_acc_y;
             lastZ = send_acc_z;
         
-            // value.textContent = speed_float;
-            // data=speed_float;
-            
-            if(speed_float>1){
-                value.textContent = 20*Math.log10(speed_float);
-                data=20*Math.log10(speed_float);
-            }
+        }
+        // x축에 대한 가속도 데시벨
+     
+        // var result_x = 20 * Math.log10(Math.abs(send_acc_x) * 100000);
+        // var result_y = 20 * Math.log10(Math.abs(send_acc_y) * 100000);
+        // var result_z = 20 * Math.log10(Math.abs(send_acc_z-9.8) * 100000);
+
+        // var final_val = (result_x + result_y + result_z) / 3
+        value.textContent = speed_float;
+        data = speed_float;
         // 출력부분
-            // if(speed_float>1){
-            //     value.textContent = speed_float;
-            //     data=speed_float;
-            // }else{
-            //     value.textContent = speed_float;
-            //     data=speed_float;
-            // }
+
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
-        }
+                
+            
+        
     };
 
     // Event Handlers
@@ -367,7 +367,7 @@
             }
         })
         }
-        }, 200);
+        }, 100);
 
         setInterval(function () {
         Plotly.extendTraces('chart2', {
@@ -375,7 +375,7 @@
             [data]
             ]
         }, [0]);
-    }, 200);
+    }, 100);
 
 
 }, false);
