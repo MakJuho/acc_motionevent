@@ -292,10 +292,25 @@
 
         // 값은 tmp_vibrate로 넘겨준다.
         // id 하나를 지정하고 거기에 값을 넣어준다.
-                
+
             
         
     };
+
+    var text = document.getElementById("right");
+    if(speed_float<10){
+        text.textContent = "지각하지 못함";
+    }else if(speed_float<40){
+        text.textContent = "약간 지각";
+    }else if(speed_float<125){
+        text.textContent = "확실히 지각";
+    }else if(speed_float<400){
+        text.textContent = "짜증을 일으킴";
+    }else if(speed_float<1000){
+        text.textContent = "불쾌하고 지속되면 고통스러움";
+    }else{
+        text.textContent = "해를 끼침";
+    }
 
     // Event Handlers
     // see: http://www.w3.org/TR/orientation-event/
