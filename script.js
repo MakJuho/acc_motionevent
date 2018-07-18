@@ -271,7 +271,7 @@
         gabOfTime = (currentTime - lastTime);
         var acc=send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ
 
-        if (gabOfTime > 100) {
+        if (gabOfTime > 1000) {
             lastTime = currentTime;
             speed_float = Math.abs(acc) / gabOfTime * 10000;
             speed_float = Math.floor(speed_float);
@@ -304,8 +304,10 @@
             text.textContent = "짜증을 일으킴";
         } else if (speed_float < 1000) {
             text.textContent = "불쾌하고 지속되면 고통스러움";
-        } else {
+        } else if (speed_float >=1000) {
             text.textContent = "해를 끼침";
+        } else{
+            text.textContent = "지각하지 못함";
         }
             
         
