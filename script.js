@@ -307,7 +307,7 @@
         } else if (speed_float >=1000) {
             text.textContent = "해를 끼침";
         } else{
-            text.textContent = "지각하지 못함";
+            text.textContent = "불쾌하고 지속되면 고통스러움";
         }
             
         
