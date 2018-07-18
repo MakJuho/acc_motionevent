@@ -32,7 +32,7 @@
     var lastZ;
     
     
-    var speed_float;
+    var speed_float=0;
 
     var gabOfTime;
     var currentTime;
