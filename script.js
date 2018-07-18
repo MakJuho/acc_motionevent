@@ -271,7 +271,7 @@
         gabOfTime = (currentTime - lastTime);
         var acc=send_acc_x + send_acc_y + send_acc_z - lastX - lastY - lastZ
 
-        if (gabOfTime > 1000) {
+        if (gabOfTime > 250) {
             lastTime = currentTime;
             speed_float = Math.abs(acc) / gabOfTime * 10000;
             speed_float = Math.floor(speed_float);
