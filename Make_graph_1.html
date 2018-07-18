@@ -1,0 +1,189 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <script src="jquery-2.1.4.js"></script>
+  <script src="plotly.min.js"></script>
+  
+  <script type="text/javascript" src="plotly.min.js"></script>
+
+  <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+  <style>
+    ul>li {
+      display: none;
+    }
+
+    #reset {
+      display: none;
+    }
+
+    #counter {
+      display: none;
+    }
+
+    #xyview {
+      display: none;
+    }
+
+    #zview {
+      display: none;
+    }
+
+    #chartContainer {
+      display: none;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    p {
+      text-align: center;
+      font-size: 40px;
+      padding: 0;
+      margin: 0;
+      /* background-color: rgb(0, 0, 0); */
+    }
+
+    #chart {
+      margin: 0;
+      padding: 0;
+      height: 45%;
+      /* background-color: rgb(0, 255, 0); */
+    }
+
+    #chart2 {
+      margin: 0;
+      padding: 0;
+      height: 45%;
+      /* background-color: rgb(0, 0, 0); */
+    }
+   
+    #val{
+      display: block;
+      color: black;
+      text-align: left;
+      padding: 20px 30px;
+      text-decoration: none;
+    }
+    #val{
+      background: color #000000;
+    }
+  </style>
+  
+  <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+
+  <h1>진동 측정1102</h1>
+
+
+
+  <div id="chartContainer" style="height: 300px; width: 100%;">
+  </div>
+  <!-- <div><h2>Acceleration (w/o Gravity)</h2> -->
+  <ul>
+    <li>
+      x:
+      <input id="x1" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="x1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+    <li>y:
+      <input id="y1" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="y1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+    <li>z:
+      <input id="z1" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="z1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+    <li>abs:
+      <input id="abs1" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="abs1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+  </ul>
+  </div>
+
+  <!-- <div><h2>Acceleration (w/ Gravity)</h2> -->
+  <ul>
+    <li>x:
+      <input id="x2" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="x2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+    <li>y:
+      <input id="y2" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="y2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+    <li>z:
+      <input id="z2" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="z2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+    <li>abs:
+      <input id="abs2" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="abs2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+  </ul>
+  </div>
+  <!-- <div><h2>Acceleration (vertical/horizontal)</h2> -->
+  <ul>
+    <li>v:
+      <input id="v" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="vn" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+    <li>h:
+      <input id="h" type="range" max="20.0" min="-20.0" readonly="readonly" />
+      <input id="hn" type="number" max="20.0" min="-20.0" readonly="readonly" />
+    </li>
+  </ul>
+  </div>
+
+  <div>
+    <span id="counter"></span>
+    <button id="reset" style="padding: 5px 30px; border-radius: 10px;">reset</button>
+  </div>
+
+  <div>
+    <canvas id="xyview" style="width: 200px; height: 200px; background-color: lightgray" width="200" height="200"></canvas>
+    <canvas id="zview" style="width: 600px; height: 200px; background-color: lightgray" width="600" height="200"></canvas>
+  </div>
+  <div id="chart"></div>
+
+  <!-- <ul>
+    <li>
+      <span id="text">진동값:</span>
+
+    </li>
+    <li>
+      <span id="val">0</span>
+
+    </li>
+    <li>
+      <span id="express">자는중</a>
+    </li>
+
+  </ul> -->
+
+  진동 값 <span id="val" style="overflow-y:auto;">0</span>
+  <div id="chart2"></div>
+  <!-- <div>
+	<span id="val">0</span> -->
+  <!-- </div> -->
+
+  <div>
+    <ul>
+      <li>
+        <span style="color: red">raw value</span>
+      </li>
+      <li>
+        <span style="color: blue">low-pass filtered value</span>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+  <!-- <script type="text/javascript" src="graph.js"></script>	 -->
+</body>
+
+</html>
