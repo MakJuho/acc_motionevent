@@ -38,7 +38,7 @@
     var currentTime;
     var lastTime=0;
     
-    var speed_float;
+
     var gabOfTime;
     // 내가 짠 부분
     var calculate_val = function () {
@@ -364,6 +364,7 @@
     });
 
     // plotly.
+    var ref = 40;
 
     var trace1 = {
         y: [data],
@@ -374,20 +375,43 @@
         y: [data],
         type: 'line'
     }
+    
+    var trace3 = {
+        y: [ref],
+        type: 'line'
+    }
+
+
     var chartData = [trace1];
-    var chartData2 = [trace2];
+    var chartData2 = [trace2,trace3];
+
+
 
     var layout = {
+        
         title: '진동값',
-        showlegend: false
+        showlegend: false,
+        "titlefont":{
+            "size": 36
+        }
+
     };
     var layout2 = {
         title: '누적 진동값',
-        showlegend: false
+        showlegend: false,
+         "titlefont": {
+             "size": 36
+         }
     };
     Plotly.newPlot('chart', chartData, layout,
     {displaylogo:false,modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
-
+    // var reference_arr=new Array();
+    // while(){
+    //     reference_arr.push(40);
+    // }
+    // Plotly.addTraces('chart', {
+    //     y:reference_arr
+    // });
     // Plotly.plot('chart', [{
     // y: [data],
     // type: 'line'
@@ -397,6 +421,7 @@
     Plotly.newPlot('chart2', chartData2, layout2,
         { displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']
         });
+    // Plotly.restyle('chart2',)
     // Plotly.plot('chart2', [{
     // y: [data],
     // type: 'line'
@@ -409,7 +434,7 @@
     setInterval(function () {
 
         Plotly.extendTraces('chart', {
-        y: [[data]]
+            y: [[data]]
         }, [0]);
         Plotly.extendTraces('chart', {
         y: [[(-1) * data]]
@@ -431,9 +456,9 @@
         setInterval(function () {
         Plotly.extendTraces('chart2', {
             y: [
-            [data]
+            [data],[ref]
             ]
-        }, [0]);
+        }, [0,1]);
     }, 200);
 
 
