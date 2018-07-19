@@ -57,9 +57,6 @@
 
         return speed_float;
     }
-
-    
-
     var time_knowing = function(){
         var time =+ new Date();
         return time;
@@ -223,9 +220,9 @@
 
     // Example Application: Simple Walk Counter
     // (state)
+    var updown = 0;
     var vl = 0.0; // noise filtered value
     var count = 0;
-    var updown = 0;
     var thresholds = {up: 0.25, down: -0.25};
     // (event handler)
     var walking = function (vh) {
@@ -287,8 +284,13 @@
         // var result_z = 20 * Math.log10(Math.abs(send_acc_z-9.8) * 100000);
 
         // var final_val = (result_x + result_y + result_z) / 3
-        value.textContent = speed_float + " mm/s2";
-        data = speed_float;
+        if(isNAN(speed_float)){
+            value.textContent = 0;
+            data = 0;
+        }else{
+            value.textContent = speed_float + " mm/s2";
+            data = speed_float;
+        }
         // 출력부분
 
         // 값은 tmp_vibrate로 넘겨준다.
