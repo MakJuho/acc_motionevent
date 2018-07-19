@@ -285,8 +285,8 @@
 
         // var final_val = (result_x + result_y + result_z) / 3
         if(isNAN(speed_float)){
-            value.textContent = 0;
-            data = 0;
+            value.textContent = speed_float ||0;
+            data = speed_float ||0;
         }else{
             value.textContent = speed_float + " mm/s2";
             data = speed_float;
