@@ -357,17 +357,41 @@
 
     // plotly.
 
-    
+    var trace1 = {
+        y: [data],
+        type: 'line'
+    };
 
-    Plotly.plot('chart', [{
-    y: [data],
-    type: 'line'
-    }]);
+    var trace2 = {
+        y: [data],
+        type: 'line'
+    }
+    var chartData = [trace1];
+    var chartData2 = [trace2];
 
-    Plotly.plot('chart2', [{
-    y: [data],
-    type: 'line'
-    }]);
+    var layout = {
+        title: 'Vibration Meter',
+        showlegend: true
+    };
+    var layout2 = {
+        title: 'Total Vibration Meter',
+        showlegend: true
+    };
+    Plotly.newPlot('chart', chartData, layout, 
+    {modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
+
+    // Plotly.plot('chart', [{
+    // y: [data],
+    // type: 'line'
+    // }]);
+
+
+    Plotly.newPlot('chart2', chartData2, layout2,
+        { modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d'] });
+    // Plotly.plot('chart2', [{
+    // y: [data],
+    // type: 'line'
+    // }]);
 
     var cnt = 0;
     var mainFrame = document.getElementById("val");
