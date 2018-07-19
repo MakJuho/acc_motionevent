@@ -384,8 +384,8 @@
         title: '누적 진동값',
         showlegend: false
     };
-    Plotly.newPlot('chart', chartData, layout, 
-    {modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
+    Plotly.newPlot('chart', chartData, layout,
+    {displaylogo:false,modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
 
     // Plotly.plot('chart', [{
     // y: [data],
@@ -394,7 +394,8 @@
 
 
     Plotly.newPlot('chart2', chartData2, layout2,
-        { modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d'] });
+        { displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']
+        });
     // Plotly.plot('chart2', [{
     // y: [data],
     // type: 'line'
