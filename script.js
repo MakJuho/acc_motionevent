@@ -287,7 +287,7 @@
         // var result_z = 20 * Math.log10(Math.abs(send_acc_z-9.8) * 100000);
 
         // var final_val = (result_x + result_y + result_z) / 3
-        value.textContent = speed_float;
+        value.textContent = speed_float + " mm/s2";
         data = speed_float;
         // 출력부분
 
@@ -295,19 +295,26 @@
         // id 하나를 지정하고 거기에 값을 넣어준다.
 
         if (speed_float < 10) {
-            text.textContent = "지각하지 못함";
+            text.textContent = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"
+                + "지각하지 못함";
         } else if (speed_float < 40) {
-            text.textContent = "약간 지각";
+            text.textContent = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"
+                + "약간 지각";
         } else if (speed_float < 125) {
-            text.textContent = "확실히 지각";
+            text.textContent = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"
+                + "확실히 지각";
         } else if (speed_float < 400) {
-            text.textContent = "짜증을 일으킴";
+            text.textContent = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0" +
+                "짜증을 일으킴";
         } else if (speed_float < 1000) {
             text.textContent = "불쾌하고 지속되면 고통스러움";
         } else if (speed_float >=1000) {
-            text.textContent = "해를 끼침";
+            text.textContent = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"
+            +"해를 끼침";
         } else{
-            text.textContent = "불쾌하고 지속되면 고통스러움";
+            text.textContent = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"
+             + "인지 안됨";
+            
         }
             
         
