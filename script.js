@@ -295,6 +295,7 @@
        
         value.textContent = speed_float + " mm/s2";
         data = speed_float;
+
         
         // 출력부분
 
@@ -321,7 +322,7 @@
         } else{
             text.textContent = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"
              + "인지 안됨";
-            
+            // text.textContent = "불쾌하고 지속되면 고통스러움";
         }
             
         
