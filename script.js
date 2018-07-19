@@ -272,6 +272,10 @@
             lastTime = currentTime;
             speed_float = Math.abs(acc) / gabOfTime * 10000;
             speed_float = Math.floor(speed_float);
+            if(!(speed_float>0)){
+                speed_float=0;
+            }
+
             lastX = send_acc_x;
             lastY = send_acc_y;
             lastZ = send_acc_z;
@@ -284,13 +288,14 @@
         // var result_z = 20 * Math.log10(Math.abs(send_acc_z-9.8) * 100000);
 
         // var final_val = (result_x + result_y + result_z) / 3
-        if(isNAN(speed_float)){
-            value.textContent = speed_float ||0;
-            data = speed_float ||0;
-        }else{
-            value.textContent = speed_float + " mm/s2";
-            data = speed_float;
-        }
+        // if(!(speed_float>0)){
+        //     value.textContent = 0 + " mm/s2";
+        //     data = 0;
+        // }
+       
+        value.textContent = speed_float + " mm/s2";
+        data = speed_float;
+        
         // 출력부분
 
         // 값은 tmp_vibrate로 넘겨준다.
