@@ -22,7 +22,7 @@
         return Math.sqrt(dot(a, a));
     };
 
-    var data;
+    var data=0;
     var send_acc_x;
     var send_acc_y;
     var send_acc_z;
@@ -280,6 +280,9 @@
             lastY = send_acc_y;
             lastZ = send_acc_z;
         
+        }
+        if (!(speed_float > 0)) {
+            speed_float = 0;
         }
         // x축에 대한 가속도 데시벨
      
