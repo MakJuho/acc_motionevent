@@ -370,12 +370,12 @@
     var chartData2 = [trace2];
 
     var layout = {
-        title: 'Vibration Meter',
-        showlegend: true
+        title: '진동값',
+        showlegend: false
     };
     var layout2 = {
-        title: 'Total Vibration Meter',
-        showlegend: true
+        title: '누적 진동값',
+        showlegend: false
     };
     Plotly.newPlot('chart', chartData, layout, 
     {modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
