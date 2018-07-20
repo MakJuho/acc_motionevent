@@ -395,19 +395,22 @@
         title: '진동값',
         showlegend: false,
         "titlefont":{
-            "size": 36
+            "size": 36,
+            "color": '#31708f'
         }
+
 
     };
     var layout2 = {
         title: '누적 진동값',
         showlegend: false,
          "titlefont": {
-             "size": 36
+             "size": 36,
+             "color": '#31708f'
          }
     };
     Plotly.newPlot('chart', chartData, layout,
-    {displaylogo:false,modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
+        { displaylogo: false, modeBarButtonsToRemove: ['pan2d', 'select2d', 'lasso2d', 'toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
     // var reference_arr=new Array();
     // while(){
     //     reference_arr.push(40);
@@ -422,7 +425,11 @@
 
 
     Plotly.newPlot('chart2', chartData2, layout2,
-        { displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']
+        {
+            displaylogo: false,
+            modeBarButtonsToRemove: ['pan2d'
+                ,'select2d', 'lasso2d', 'toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d'
+            ]
         });
     // Plotly.restyle('chart2',)
     // Plotly.plot('chart2', [{
