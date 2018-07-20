@@ -367,7 +367,7 @@
     });
 
     // plotly.
-    var ref = 40;
+    var ref = 1000;
 
     var trace1 = {
         y: [data],
