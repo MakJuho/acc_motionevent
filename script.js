@@ -270,7 +270,7 @@
 
         if (gabOfTime > 100) {
             lastTime = currentTime;
-            speed_float = Math.abs(acc) / gabOfTime * 10000;
+            speed_float = Math.abs(acc) / gabOfTime * 60000;
             speed_float = Math.floor(speed_float);
             if(!(speed_float>0)){
                 speed_float=0;
