@@ -14,11 +14,15 @@
 
   <style>
     /* 슬라이드 컨테이너 */
+    .panel{
+        
+ background-color :#d9edf7;
+    }
     .slidecontainer {
       width: 100%;
       padding : 0px 0px 30px 37%;
-      display : inline-block;
-      background-color: white;
+      /* display : inline-block; */
+      /* background-color: white; */
     }
 
     .slider {
@@ -62,7 +66,7 @@
     body {
       /* background:url('http://superkts.cdn1.cafe24.com/test1.jpg') no-repeat center center fixed; */
       /* background: #bce8f1; */
-      background: #d9edf7;
+      background: white;
       /* background-op: 50%; */
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -239,87 +243,87 @@
 </head>
 
 <body>
+  <div class="panel">
+    <h1>Vibration Level</h1>
 
-  <h1>Vibration Level</h1>
+    <div id="chartContainer" style="height: 300px; width: 100%;">
+    </div>
+    <!-- <div><h2>Acceleration (w/o Gravity)</h2> -->
+    <ul>
+      <li>
+        x:
+        <input id="x1" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="x1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+      <li>y:
+        <input id="y1" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="y1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+      <li>z:
+        <input id="z1" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="z1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+      <li>abs:
+        <input id="abs1" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="abs1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+    </ul>
+    <!-- </div> -->
 
-  <div id="chartContainer" style="height: 300px; width: 100%;">
+    <!-- <div><h2>Acceleration (w/ Gravity)</h2> -->
+    <ul>
+      <li>x:
+        <input id="x2" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="x2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+      <li>y:
+        <input id="y2" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="y2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+      <li>z:
+        <input id="z2" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="z2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+      <li>abs:
+        <input id="abs2" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="abs2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+    </ul>
+    <!-- </div> -->
+    <!-- <div><h2>Acceleration (vertical/horizontal)</h2> -->
+    <ul>
+      <li>v:
+        <input id="v" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="vn" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+      <li>h:
+        <input id="h" type="range" max="20.0" min="-20.0" readonly="readonly" />
+        <input id="hn" type="number" max="20.0" min="-20.0" readonly="readonly" />
+      </li>
+    </ul>
+    <!-- </div> -->
+
+    <div>
+      <span id="counter"></span>
+      <button id="reset" style="padding: 5px 30px; border-radius: 10px;">reset</button>
+    </div>
+
+    <div>
+      <canvas id="xyview" style="width: 200px; height: 200px; background-color: lightgray" width="200" height="200"></canvas>
+      <canvas id="zview" style="width: 600px; height: 200px; background-color: lightgray" width="600" height="200"></canvas>
+    </div>
+    
+
+    <!-- <div class="main"> -->
+  <!-- <p>진동값 -->
+    <!-- 공백란 만들기 -->
+  <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <!-- </p> -->
+    
+    <div class="main_1 main_common" id="right"><p class="content"></p></div>
+    <!-- <div class="main_2 main_common"><p class="content">test2</p></div> -->
+    <div class="main_3 main_common" id="val"></div>
   </div>
-  <!-- <div><h2>Acceleration (w/o Gravity)</h2> -->
-  <ul>
-    <li>
-      x:
-      <input id="x1" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="x1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-    <li>y:
-      <input id="y1" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="y1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-    <li>z:
-      <input id="z1" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="z1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-    <li>abs:
-      <input id="abs1" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="abs1n" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-  </ul>
-  </div>
-
-  <!-- <div><h2>Acceleration (w/ Gravity)</h2> -->
-  <ul>
-    <li>x:
-      <input id="x2" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="x2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-    <li>y:
-      <input id="y2" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="y2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-    <li>z:
-      <input id="z2" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="z2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-    <li>abs:
-      <input id="abs2" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="abs2n" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-  </ul>
-  </div>
-  <!-- <div><h2>Acceleration (vertical/horizontal)</h2> -->
-  <ul>
-    <li>v:
-      <input id="v" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="vn" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-    <li>h:
-      <input id="h" type="range" max="20.0" min="-20.0" readonly="readonly" />
-      <input id="hn" type="number" max="20.0" min="-20.0" readonly="readonly" />
-    </li>
-  </ul>
-  </div>
-
-  <div>
-    <span id="counter"></span>
-    <button id="reset" style="padding: 5px 30px; border-radius: 10px;">reset</button>
-  </div>
-
-  <div>
-    <canvas id="xyview" style="width: 200px; height: 200px; background-color: lightgray" width="200" height="200"></canvas>
-    <canvas id="zview" style="width: 600px; height: 200px; background-color: lightgray" width="600" height="200"></canvas>
-  </div>
-  
-
-  <!-- <div class="main"> -->
-<!-- <p>진동값 -->
-  <!-- 공백란 만들기 -->
- <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-  <!-- </p> -->
-  
-  <div class="main_1 main_common" id="right"><p class="content"></p></div>
-  <!-- <div class="main_2 main_common"><p class="content">test2</p></div> -->
-  <div class="main_3 main_common" id="val"></div>
-
 
   
   
