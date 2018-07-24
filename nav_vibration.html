@@ -3,16 +3,58 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-  <link rel="stylesheet" href="nav_base.css">
+
   <link rel="stylesheet" href="font.css">
   <script src="jquery-2.1.4.js"></script>
   <!-- <script src="plotly.min.js"></script> -->
   <!-- <link rel='stylesheet' type='text/css' href="rotate.css"> -->
 
   <script type="text/javascript" src="plotly.min.js"></script>
-
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 
   <style>
+    /* 슬라이드 컨테이너 */
+    .slidecontainer {
+      width: 100%;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      width: 25%;
+      height: 15px;
+      border-radius: 5px;
+      background: #31708f;
+      outline: none;
+      opacity: 0.5;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .slider:hover{
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+
+    }
+
+    .slider::-moz-range-thumb {
+
+      width: 25px;
+      height: 25px;
+      border-radius: 25%;
+      background: #31708f;
+      cursor: pointer;
+
+    }
 
     body {
       /* background:url('http://superkts.cdn1.cafe24.com/test1.jpg') no-repeat center center fixed; */
@@ -87,6 +129,16 @@
       margin:0 auto;
     } */
 
+
+    /* side_BAR 스타일 꾸미기 */
+    .menu a {
+      cursor: pointer;
+    }
+
+    .menu .hide {
+      display: none;
+    }
+
     p{
       color: #31708f;
       text-align:left;
@@ -160,39 +212,30 @@
       display: none;
     }    
   </style>
+
+  <!-- /* side_BAR 버튼 클릭시 Event */ -->
+  <script>
+    // html dom 이 다 로딩된 후 실행된다.
+    $(document).ready(function () {
+      // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+      $(".menu>a").click(function () {
+        var submenu = $(this).next("ul");
+
+        // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+        if (submenu.is(":visible")) {
+          submenu.slideUp();
+        } else {
+          submenu.slideDown();
+        }
+      });
+    });
+  </script>
   
   <script type="text/javascript" src="script.js"></script>
 
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5;" id="mySidebar">
-      <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-      <a href="#" class="w3-bar-item w3-button">Link 1</a>
-      <a href="#" class="w3-bar-item w3-button">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button">Link 3</a>
-    </div>
-
-    <!-- Page Content -->
-    <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
-
-
-    <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
-
-
-    <script>
-      function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("myOverlay").style.display = "block";
-      }
-
-      function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("myOverlay").style.display = "none";
-      }
-    </script>
-
 
   <h1>Vibration Level</h1>
 
@@ -276,6 +319,20 @@
     
   </div>
 
+
+  <div class="" "slidecontainer">
+
+    <input type="range" min="1" max="4000" value="1000" class="slider" id="myRange">
+    <p>기준선:
+      <span id="demo"></span>
+    </p>
+
+  </div>
+
+  <script>
+   
+
+  </script>
   <!-- <div class="main_4 main_common"><p class="content">mm/s2</p></div> -->
   
   <div id="chart"></div>

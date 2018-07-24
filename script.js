@@ -259,6 +259,11 @@
     
     var value = document.getElementById("val");
     var text = document.getElementById("right");
+
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    var ref;
+    var ref2;
     var updateValue = function(){
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
@@ -327,8 +332,17 @@
              + "인지 안됨";
             // text.textContent = "불쾌하고 지속되면 고통스러움";
         }
-            
+        // 슬라이드 바
+
         
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        }
+
+        ref = slider.value;
+        ref2 = 500;
     };
 
     
@@ -365,9 +379,11 @@
         }
         requestAnimationFrame(loop);
     });
+    
+    
 
     // plotly.
-    var ref = 1000;
+    
 
     var trace1 = {
         y: [data],
@@ -383,10 +399,13 @@
         y: [ref],
         type: 'line'
     }
-
+    var trace4 = {
+        y: [ref2],
+        type: 'line'
+    }
 
     var chartData = [trace1];
-    var chartData2 = [trace2,trace3];
+    var chartData2 = [trace2,trace3,trace4];
 
 
 
@@ -397,10 +416,38 @@
         "titlefont":{
             "size": 36,
             "color": '#31708f'
-        }
+        },
+        
+        sliders: [{
+            pad: {
+                t: 30
+            },
+            currentvalue: {
+                xanchor: 'right',
+                prefix: 'color: ',
+                font: {
+                    color: '#888',
+                    size: 20
+                }
+            },
 
-
+            steps: [{
+                label: 'red',
+                method: 'restyle',
+                args: ['line.color', 'red']
+            }, {
+                label: 'green',
+                method: 'restyle',
+                args: ['line.color', 'green']
+            }, {
+                label: 'blue',
+                method: 'restyle',
+                args: ['line.color', 'blue']
+            }]
+        }]
+    
     };
+    
     var layout2 = {
         title: '누적 진동값',
         showlegend: false,
@@ -410,7 +457,10 @@
          }
     };
     Plotly.newPlot('chart', chartData, layout,
-        { displaylogo: false, modeBarButtonsToRemove: ['pan2d', 'select2d', 'lasso2d', 'toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
+        { displaylogo: false, 
+        modeBarButtonsToRemove: ['pan2d', 'select2d', 'lasso2d', 'toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']}
+            
+        );
     // var reference_arr=new Array();
     // while(){
     //     reference_arr.push(40);
@@ -427,9 +477,8 @@
     Plotly.newPlot('chart2', chartData2, layout2,
         {
             displaylogo: false,
-            modeBarButtonsToRemove: ['pan2d'
-                ,'select2d', 'lasso2d', 'toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d'
-            ]
+            modeBarButtonsToRemove: ['pan2d','select2d', 'lasso2d', 'toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']
+            
         });
     // Plotly.restyle('chart2',)
     // Plotly.plot('chart2', [{
@@ -466,9 +515,9 @@
         setInterval(function () {
         Plotly.extendTraces('chart2', {
             y: [
-            [data],[ref]
+            [data],[ref],[ref2]
             ]
-        }, [0,1]);
+        }, [0,1,2]);
     }, 200);
 
 
