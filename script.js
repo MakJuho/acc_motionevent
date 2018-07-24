@@ -325,7 +325,7 @@
             text.textContent = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0" +
                 "짜증을 일으킴";
         } else if (speed_float < 1000) {
-            text.textContent = "불쾌하고 지속되면 고통스러움";
+            text.textContent = "지속되면 고통스러움";
         } else if (speed_float >=1000) {
             text.textContent = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"
             +"해를 끼침";
