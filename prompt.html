@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <!-- <p>Click the button to display a dialog box which will ask for your favorite drink.</p> -->
+
+  <button onclick="insert_ref_line()">기준선 추가</button>
+  <button onclick="delete_ref_line()">기준선 삭제</button>
+  <p id="demo"></p>
+
+  <script>
+    function insert_ref_line() {
+      // var text;
+      var favDrink = prompt("추가할 기준선 값을 입력해주세요.");
+      // switch (favDrink) {
+      //   case "Martini":
+      //     text = "Excellent choice. Martini is good for your soul.";
+      //     break;
+      //   case "Daiquiri":
+      //     text = "Daiquiri is my favorite too!";
+      //     break;
+      //   case "Cosmopolitan":
+      //     text = "Really? Are you sure the Cosmopolitan is your favorite?";
+      //     break;
+      //   default:
+      //     text = "I have never heard of that one..";
+      // }
+      document.getElementById("demo").innerHTML = text;
+    }
+
+    function delete_ref_line() {
+      // var text;
+      var favDrink = prompt("삭제할 기준선 값을 입력해주세요.");
+      // switch (favDrink) {
+      //   case "Martini":
+      //     text = "Excellent choice. Martini is good for your soul.";
+      //     break;
+      //   case "Daiquiri":
+      //     text = "Daiquiri is my favorite too!";
+      //     break;
+      //   case "Cosmopolitan":
+      //     text = "Really? Are you sure the Cosmopolitan is your favorite?";
+      //     break;
+      //   default:
+      //     text = "I have never heard of that one..";
+      // }
+      document.getElementById("demo").innerHTML = text;
+    }
+  </script>
+
+
+
+</body>
+
+</html>
