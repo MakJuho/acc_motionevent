@@ -262,8 +262,10 @@
 
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
-    var ref;
-    var ref2;
+    var slider2 = document.getElementById("myRange2");
+    var output2 = document.getElementById("demo2");
+    var ref_1;
+    var ref_2;
     var updateValue = function(){
         
         var tmp_vibrate=Math.abs(zl1s[cur]*1000);
@@ -336,13 +338,18 @@
 
         
         output.innerHTML = slider.value;
+        output2.innerHTML = slider2.value;
 
         slider.oninput = function () {
             output.innerHTML = this.value;
         }
 
-        ref = slider.value;
-        ref2 = 500;
+        slider2.oninput = function () {
+            output2.innerHTML = this.value;
+        }
+
+        ref_1 = slider.value;
+        ref_2 = slider2.value;
     };
 
     
@@ -365,11 +372,7 @@
 
     requestAnimationFrame(function loop() {
         updateWalking();
-
-        
         updateValue();
-
-
         if (lastvh) {
             showAccel(v1, lastvh.a);
             showAccel(v2, lastvh.ag);
@@ -396,16 +399,16 @@
     }
     
     var trace3 = {
-        y: [ref],
+        y: [ref_1],
         type: 'line'
     }
     var trace4 = {
-        y: [ref2],
+        y: [ref_2],
         type: 'line'
     }
 
-    var chartData = [trace1];
-    var chartData2 = [trace2,trace3,trace4];
+    var chartData = [trace1,trace3];
+    var chartData2 = [trace2,trace4];
 
 
 
@@ -416,36 +419,7 @@
         "titlefont":{
             "size": 36,
             "color": '#31708f'
-        },
-        
-        sliders: [{
-            pad: {
-                t: 30
-            },
-            currentvalue: {
-                xanchor: 'right',
-                prefix: 'color: ',
-                font: {
-                    color: '#888',
-                    size: 20
-                }
-            },
-
-            steps: [{
-                label: 'red',
-                method: 'restyle',
-                args: ['line.color', 'red']
-            }, {
-                label: 'green',
-                method: 'restyle',
-                args: ['line.color', 'green']
-            }, {
-                label: 'blue',
-                method: 'restyle',
-                args: ['line.color', 'blue']
-            }]
-        }]
-    
+        }
     };
     
     var layout2 = {
@@ -493,11 +467,11 @@
     setInterval(function () {
 
         Plotly.extendTraces('chart', {
-            y: [[data]]
-        }, [0]);
+            y: [[data],[ref_1]]
+        }, [0,1]);
         Plotly.extendTraces('chart', {
-        y: [[(-1) * data]]
-        }, [0]);
+        y: [[(-1) * data],[ref_1]]
+        }, [0,1]);
         cnt += 2;
 
         createFrame.innerHTML = data;
@@ -515,9 +489,9 @@
         setInterval(function () {
         Plotly.extendTraces('chart2', {
             y: [
-            [data],[ref],[ref2]
+            [data],[ref_2]
             ]
-        }, [0,1,2]);
+        }, [0,1]);
     }, 200);
 
 
